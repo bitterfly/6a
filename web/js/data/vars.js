@@ -75,16 +75,16 @@ var ENCOUNTERS = {
                 stats({ e: 1, m: -1, r: -1, p: -2, c: 1, k: 2});
             }));
             div.append(choice(this.choices[2], 13, 4, function() {
-                stats({ e: 1, m: -1, r: -1, p: -2, c: 1, k: 2});
+                stats({ e: 1, m: 2, r: -1, p: -1, c: -2, k: 1});
             }));
             div.append(choice(this.choices[3], 7, 6, function() {
-                stats({ e: 1, m: -1, r: -1, p: -2, c: 1, k: 2});
+                stats({ e: -2, m: 1, r: 2, p: -1, c: -1, k: 1});
             }));
             div.append(choice(this.choices[4], 10, 6, function() {
-                stats({ e: 1, m: -1, r: -1, p: -2, c: 1, k: 2});
+                stats({ e: -1, m: 1, r: 1, p: -2, c: 1, k: 2});
             }));
             div.append(choice(this.choices[5], 13, 6, function() {
-                stats({ e: 1, m: -1, r: -1, p: -2, c: 1, k: 2});
+                stats({ e: 1, m: -2, r: 1, p: -1, c: 2, k: -1});
             }));
             
             (function(shadow) {
@@ -112,20 +112,17 @@ var ENCOUNTERS = {
             div.append(this.bg);
 
             div.append(choice(this.text, 7, 2, function() {
-                stats({ e: 1, m: -1, r: -1, p: -2, c: 1, k: 2});
+                stats({ e: 1, m: 1, r: -2, p: -5, c: -1, k: 2});
             }));
 
             div.append(choice(this.choices[0], 7, 4, function() {
-                stats({ e: 1, m: -1, r: -1, p: -2, c: 1, k: 2});
+                stats({ e: -1, m: -1, r: 1, p: 1, c: 2, k: -2});
             }));
             div.append(choice(this.choices[1], 10, 4, function() {
-                stats({ e: 1, m: -1, r: -1, p: -2, c: 1, k: 2});
+                stats({ e: -1, m: -2, r: 1, p: 2, c: 1, k: -1});
             }));
             div.append(choice(this.choices[2], 13, 4, function() {
-                stats({ e: 1, m: -1, r: -1, p: -2, c: 1, k: 2});
-            }));
-            div.append(choice(this.choices[3], 7, 6, function() {
-                stats({ e: 1, m: -1, r: -1, p: -2, c: 1, k: 2});
+                stats({ e: -2, m: 2, r: 2, p: 1, c: -2, k: 1});
             }));
         }
     },
