@@ -55,12 +55,51 @@ var ENCOUNTERS = {
             imgroot: '',
             bg: load_image("../img/encounters/01/bg.png"),
             choices: [
-                load_image('../img/encounters/01/c1.png'),
-                load_image('../img/encounters/01/c2.png'),
-                load_image('../img/encounters/01/c3.png'),
-                load_image('../img/encounters/01/c4.png'),
-                load_image('../img/encounters/01/c5.png'),
-                load_image('../img/encounters/01/c6.png')
+                load_image('../img/encounters/01/1.png'),
+                load_image('../img/encounters/01/2.png'),
+                load_image('../img/encounters/01/3.png'),
+                load_image('../img/encounters/01/4.png'),
+                load_image('../img/encounters/01/5.png'),
+                load_image('../img/encounters/01/6.png')
+            ]
+        },
+        text: '',
+        render: function(div) {
+            div.append(this.images.bg);
+            div.append(choice(this.images.choices[0], 7, 4, function() {
+                stats({ e: 1, m: -1, r: -1, p: -2, c: 1, k: 2});
+            }));
+            div.append(choice(this.images.choices[1], 10, 4, function() {
+                stats({ e: 1, m: -1, r: -1, p: -2, c: 1, k: 2});
+            }));
+            div.append(choice(this.images.choices[2], 13, 4, function() {
+                stats({ e: 1, m: -1, r: -1, p: -2, c: 1, k: 2});
+            }));
+            div.append(choice(this.images.choices[3], 7, 6, function() {
+                stats({ e: 1, m: -1, r: -1, p: -2, c: 1, k: 2});
+            }));
+            div.append(choice(this.images.choices[4], 10, 6, function() {
+                stats({ e: 1, m: -1, r: -1, p: -2, c: 1, k: 2});
+            }));
+            div.append(choice(this.images.choices[5], 13, 6, function() {
+                stats({ e: 1, m: -1, r: -1, p: -2, c: 1, k: 2});
+            }));
+        }
+    },
+    2: {
+        range: {
+            start: 2,
+            end: 10
+        },
+        images: {
+            imgroot: '',
+            bg: load_image("../img/encounters/02/bg.png"),
+            choices: [
+                load_image('../img/encounters/02/c1.png'),
+                load_image('../img/encounters/02/c2.png'),
+                load_image('../img/encounters/02/c3.png'),
+                load_image('../img/encounters/02/c4.png'),
+                load_image('../img/encounters/02/c5.png'),
             ]
         },
         text: '',
@@ -74,34 +113,15 @@ var ENCOUNTERS = {
         ],
         render: function(div) {
             div.append(this.images.bg);
-            div.append(grid(this.images.choices[0], 8, 4).click(function() {
-                alert("choice 0");
+            div.append(grid(this.images.choices[0], 7, 0).click(function() {
+                STAT.e += 1;
+                STAT.r  
             }));
-            div.append(grid(this.images.choices[1], 11, 4));
-            div.append(grid(this.images.choices[2], 14, 4));
-            div.append(grid(this.images.choices[3], 8, 6));
-            div.append(grid(this.images.choices[4], 11, 6));
-            div.append(grid(this.images.choices[5], 14, 6));
+            div.append(grid(this.images.choices[1], 7, 3));
+            div.append(grid(this.images.choices[2], 7, 4));
+            div.append(grid(this.images.choices[3], 7, 5));
+            div.append(grid(this.images.choices[4], 7, 6));
         }
-    },
-    2: {
-        range: {
-            start: 2,
-            end: 10
-        },
-        images: [
-            backgroundSrc = '',
-            movingSrc = []
-        ],
-        text: '',
-        choices: [
-            {
-
-            },
-            {
-
-            }
-        ]
     },
     3: {
         range: {
@@ -211,5 +231,12 @@ MEMORIES = {
 CUR = {};
 ELEM = {};
 TIME = 1;
+
+STATS = { e: 0
+        , m: 0
+        , r: 0
+        , p: 0
+        , c: 0
+        , k: 0};
 
 $BODY = $('body');

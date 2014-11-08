@@ -17,6 +17,12 @@ function start_encounter() {
     TIME += 1;
 }
 
+function choice(element, x, y, action) {
+    return grid(element, x, y).click(function() {
+        action();
+    });
+}
+
 $(document).ready(function() {
     window.globals_6a = {};
     CUR.mousex = 20;

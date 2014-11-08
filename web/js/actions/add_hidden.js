@@ -30,3 +30,9 @@ function load_image(src) {
 function grid(element, x, y) {
     return element.css('left', x * 1216 / 16).css('top', y * 684 / 9);
 }
+
+function stats(stat_diff) {
+    for (var key in stat_diff) {
+        STATS[key] += stat_diff[key];
+    }
+}
