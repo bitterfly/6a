@@ -190,3 +190,5 @@ var MEMORIES = {
 } ;
 
 CUR = {};
+ELEM = {};
+TIME = 1;

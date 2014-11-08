@@ -9,3 +9,23 @@
     margin:-342 0 0 -608px;
     background-color: #ccc;
 }
+
+.front {
+    z-index: 1;
+}
+
+.back {
+    z-index: 0;
+}
+
+.image_stack {
+    position: relative;
+}
+
+.stacked {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+}
+
+

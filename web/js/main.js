@@ -3,8 +3,16 @@ function glob() {
 }
 
 function mouse(x, oldx) {
-    CUR.room_frames[oldx - 1].hide();
-    CUR.room_frames[x - 1].show();
+    CUR.room_frames[oldx - 1].removeClass('front');
+    CUR.room_frames[x - 1].addClass('front');
+}
+
+function start_encounter() {
+    encounter = ENCOUNTERS[TIME];
+
+
+
+    TIME += 1;
 }
 
 $(document).ready(function() {
