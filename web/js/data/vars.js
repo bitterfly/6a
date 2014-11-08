@@ -53,7 +53,7 @@ var ENCOUNTERS = {
         },
         imgroot: '',
         bg: encounter_image("img/encounters/01/bg.png"),
-        creepy_hand: encounter_image("img/encounters/01/hand.png"),
+        shadow: encounter_image("img/encounters/01/shadow.png"),
         goblin: encounter_image("img/encounters/01/goblin.png"),
         choices: [
             choice_image('img/encounters/01/1.png'),
@@ -65,11 +65,11 @@ var ENCOUNTERS = {
         ],
         render: function(div) {
             div.append(this.bg);
-            div.append(grid(this.creepy_hand, 3, 5));
-            div.append(grid(this.goblin, 0, 2));
+            div.append(grid(this.shadow, 0, 1));
+            div.append(grid(this.goblin, 0, 1));
 
             div.append(choice(this.choices[0], 7, 4, function() {
-                stats({ e: 1, m: -1, r: -1, p: -2, c: 1, k: 2});
+                stats({ e: 2, m: 1, r: -2, p: -2, c: -1, k: 2});
             }));
             div.append(choice(this.choices[1], 10, 4, function() {
                 stats({ e: 1, m: -1, r: -1, p: -2, c: 1, k: 2});
@@ -87,11 +87,11 @@ var ENCOUNTERS = {
                 stats({ e: 1, m: -1, r: -1, p: -2, c: 1, k: 2});
             }));
             
-            (function(hand) {
+            (function(shadow) {
                 CUR.mouse_event = function(x, oldx) {
-                    hand.css('transform', 'rotate(-' + x / 4 + 'deg)');
+                    shadow.css('transform', 'translateX(' + x / 2 + 'px)');
                 }
-            })(this.creepy_hand);
+            })(this.shadow);
         }
     },
     2: {
