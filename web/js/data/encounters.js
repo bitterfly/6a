@@ -8,7 +8,10 @@ var enounters = {
             start: 2,
             end: 10
         },
-        images: [],
+        images: [
+            backgroundSrc = '',
+            movingSrc = []
+        ],
         text: '',
         choices: [
             {
@@ -24,7 +27,10 @@ var enounters = {
             start: 2,
             end: 10
         },
-        images: [],
+        images: [
+            backgroundSrc = '',
+            movingSrc = []
+        ],
         text: '',
         choices: [
             {
@@ -40,7 +46,10 @@ var enounters = {
             start: 10,
             end: 16
         },
-        images: [],
+        images: [
+            backgroundSrc = '',
+            movingSrc = []
+        ],
         text: '',
         choices: [
             {
@@ -56,7 +65,10 @@ var enounters = {
             start: 10,
             end: 16
         },
-        images: [],
+        images: [
+            backgroundSrc = '',
+            movingSrc = []
+        ],
         text: '',
         choices: [
             {
@@ -72,7 +84,10 @@ var enounters = {
             start: 16,
             end: 21
         },
-        images: [],
+        images: [
+            backgroundSrc = '',
+            movingSrc = []
+        ],
         text: '',
         choices: [
             {
@@ -88,7 +103,10 @@ var enounters = {
             start: 16,
             end: 21
         },
-        images: [],
+        images: [
+            backgroundSrc = '',
+            movingSrc = []
+        ],
         text: '',
         choices: [
             {
