@@ -155,11 +155,13 @@ CUR = {};
 ELEM = {};
 TIME = 2;
 
-STATS = { e: 0
-        , m: 0
-        , r: 0
-        , p: 0
-        , c: 0
-        , k: 0};
+STATS = {
+    e: 0,
+    m: 0,
+    r: 0,
+    p: 0,
+    c: 0,
+    k: 0
+};
 
 $BODY = $('body');
