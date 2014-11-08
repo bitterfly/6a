@@ -52,17 +52,20 @@ var ENCOUNTERS = {
             end: 10
         },
         imgroot: '',
-        bg: encounter_image("../img/encounters/01/bg.png"),
+        bg: encounter_image("img/encounters/01/bg.png"),
+        creepy_hand: encounter_image("img/encounters/01/hand.png"),
         choices: [
-            choice_image('../img/encounters/01/1.png'),
-            choice_image('../img/encounters/01/2.png'),
-            choice_image('../img/encounters/01/3.png'),
-            choice_image('../img/encounters/01/4.png'),
-            choice_image('../img/encounters/01/5.png'),
-            choice_image('../img/encounters/01/6.png')
+            choice_image('img/encounters/01/1.png'),
+            choice_image('img/encounters/01/2.png'),
+            choice_image('img/encounters/01/3.png'),
+            choice_image('img/encounters/01/4.png'),
+            choice_image('img/encounters/01/5.png'),
+            choice_image('img/encounters/01/6.png')
         ],
         render: function(div) {
             div.append(this.bg);
+            div.append(grid(this.creepy_hand, 4, 6));
+
             div.append(choice(this.choices[0], 7, 4, function() {
                 stats({ e: 1, m: -1, r: -1, p: -2, c: 1, k: 2});
             }));
@@ -89,14 +92,14 @@ var ENCOUNTERS = {
             end: 10
         },
         imgroot: '',
-        bg: encounter_image("../img/encounters/02/bg.png"),
+        bg: encounter_image("img/encounters/02/bg.png"),
         text: encounter_text('foo'),
         choices: [
-            choice_text('../img/encounters/01/1.png'),
-            choice_text('../img/encounters/01/2.png'),
-            choice_text('../img/encounters/01/3.png'),
-            choice_text('../img/encounters/01/4.png'),
-            choice_text('../img/encounters/01/5.png'),
+            choice_text('fuck'),
+            choice_text('shit'),
+            choice_text('poop'),
+            choice_text('gs'),
+            choice_text('bla'),
         ],
         render: function(div) {
             div.append(this.bg);
