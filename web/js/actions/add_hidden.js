@@ -15,7 +15,7 @@ function add_images(image_urls, div) {
     var image = null;
     var len = image_urls.length;
     for (var i = 0; i < len; i++) {
-        image = $('<img class="frame" style="display: none">');
+        image = $('<img class="frame stacked">');
         image.attr('src', image_urls[i]);
         image.appendTo(div);
         images.push(image);
