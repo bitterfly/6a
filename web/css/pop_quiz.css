@@ -1,0 +1,19 @@
+.quiz-timer-progress-bar {
+    height: 7px;
+    background-color: darkred;
+    width: 0%;
+    margin: 0px 0px 0px 0px;
+    border: none;
+    z-index: 11;
+    position: relative;
+}
+
+.quiz-timer-progress-bar-div {
+    height: 7px;
+    background-color: #ffffff;
+    width: 100%;
+    margin: 0px 0px 0px 0px;
+    border: none;
+    z-index: 11;
+    position: relative;
+}
