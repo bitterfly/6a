@@ -5,7 +5,7 @@
 function ADD_HIDDEN (data, divId) {
     var htmlstring = '';
 
-    htmlstring += '<img src="' + data.src + '">\n';
+    htmlstring += '<img src="' + data + '" >\n';
 
     $(divId).append(htmlstring);
 }
