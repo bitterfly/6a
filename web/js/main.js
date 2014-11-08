@@ -8,20 +8,14 @@ function mouse(x, oldx) {
 }
 
 function start_encounter() {
+    var $encounter = $("#encounter");
+
     encounter = ENCOUNTERS[TIME];
-    encounter.render($("#encounter"));
+    encounter.render($encounter);
     $("#room").hide();
-    $("#encounter").show();
-    
+    $encounter.show();
 
     TIME += 1;
-}
-
-function choice(element, x, y, action) {
-    return grid(element, x, y).click(function() {
-        action();
-        alert(JSON.stringify(STATS));
-    });
 }
 
 $(document).ready(function() {

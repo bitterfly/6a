@@ -158,7 +158,7 @@ MEMORIES = {
 
 CUR = {};
 ELEM = {};
-TIME = 1;
+TIME = 2;
 
 STATS = {
     e: 0,
