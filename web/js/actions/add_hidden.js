@@ -26,3 +26,7 @@ function add_images(image_urls, div) {
 function load_image(src) {
     return $('<img class="encounter_bg stacked">').attr('src', src);
 }
+
+function grid(element, x, y) {
+    return element.css('left', x * 1216 / 16).css('top', y * 684 / 9);
+}

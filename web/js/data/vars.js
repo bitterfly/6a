@@ -74,7 +74,14 @@ var ENCOUNTERS = {
         ],
         render: function(div) {
             div.append(this.images.bg);
-            div.append(this.images.choices[0]);
+            div.append(grid(this.images.choices[0], 2, 2).click(function() {
+                alert("choice 0");
+            }));
+            div.append(grid(this.images.choices[1], 6, 2));
+            div.append(grid(this.images.choices[2], 10, 2));
+            div.append(grid(this.images.choices[3], 2, 5));
+            div.append(grid(this.images.choices[4], 6, 5));
+            div.append(grid(this.images.choices[5], 10, 5));
         }
     },
     2: {
