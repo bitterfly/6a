@@ -1,0 +1,19 @@
+#pop_quiz {
+    width: 100%;
+    height: 100%;
+}
+
+#question {
+    height: 70%;
+    width:70%;
+}
+
+.quiz-timer-progress-bar {
+    height: 7px;
+    background-color: darkred;
+    width: 0%;
+    margin: 0px 0px 0px 0px;
+    border: none;
+    z-index: 11;
+    position: relative;
+}
