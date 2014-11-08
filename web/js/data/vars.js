@@ -95,13 +95,12 @@ var ENCOUNTERS = {
         },
         imgroot: '',
         bg: encounter_image("img/encounters/02/bg.png"),
-        text: encounter_text('foo'),
+        text: encounter_text('За съжаление, в живота на всяко дете настъпва първият учебен ден и според обичая на класния ръководител се носи букет. По някакво странно стечение на обстоятеластвата класният ръководител на новия ти клас е мъж- Господин Господинов. Всички се чудите какъв букет е добре да му поднесете.'),
         choices: [
-            choice_text('Защо никой не ме предупреди, какво да измисля в последния момент...  може би букет от слънчогледи.'),
-            choice_text('bla'),
-            choice_text('poop'),
-            choice_text('gs'),
-            choice_text('bla')
+            choice_text('Защо никой не ме предупреди какво да измисля в последния момент...  може би букет от слънчогледи.'),
+            choice_text('Мама ще знае.'),
+            choice_text('Букетите са само за учителките.'),
+            choice_text('Класен ръководител е, значи се очаква да има букет. Ще му взема роза.'),
         ],
         render: function(div) {
             div.append(this.bg);
@@ -120,9 +119,6 @@ var ENCOUNTERS = {
                 stats({ e: 1, m: -1, r: -1, p: -2, c: 1, k: 2});
             }));
             div.append(choice(this.choices[3], 7, 6, function() {
-                stats({ e: 1, m: -1, r: -1, p: -2, c: 1, k: 2});
-            }));
-            div.append(choice(this.choices[4], 10, 6, function() {
                 stats({ e: 1, m: -1, r: -1, p: -2, c: 1, k: 2});
             }));
         }
