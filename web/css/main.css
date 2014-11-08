@@ -38,3 +38,25 @@
     height: 20px;
 }
 
+.encounter_text {
+    height: 45px;
+    width: 100px;
+
+    border-radius: 6px;
+    font-size: 18px;
+    line-height: 1.33;
+    padding: 10px 16px;
+    background-color: darkkhaki;
+    border-color: #ccc;
+    color: #333;
+
+    -moz-user-select: none;
+    background-image: none;
+    cursor: pointer;
+    display: inline-block;
+    font-weight: 400;
+    margin-bottom: 0;
+    text-align: center;
+    vertical-align: middle;
+    white-space: nowrap;
+}

@@ -95,11 +95,11 @@ var ENCOUNTERS = {
         bg: encounter_image("img/encounters/02/bg.png"),
         text: encounter_text('foo'),
         choices: [
-            choice_text('fuck'),
-            choice_text('shit'),
-            choice_text('poop'),
-            choice_text('gs'),
-            choice_text('bla')
+            choice_text('norman'),
+            choice_text('blub'),
+            choice_text('potato'),
+            choice_text('dis'),
+            choice_text('stardis')
         ],
         render: function(div) {
             div.append(this.bg);
@@ -156,7 +156,7 @@ MEMORIES = {
 
 CUR = {};
 ELEM = {};
-TIME = 1;
+TIME = 2;
 
 STATS = {
     e: 0,
