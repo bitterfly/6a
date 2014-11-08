@@ -46,120 +46,82 @@ ROOM_IMAGES = [
 ];
 
 var ENCOUNTERS = {
-    0: {
-        range: {
-            start: 2,
-            end: 10
-        },
-        images: [
-            backgroundSrc = '',
-            movingSrc = []
-        ],
-        text: '',
-        choices: [
-            {
-
-            },
-            {
-
-            }
-        ]
-    },
     1: {
         range: {
             start: 2,
             end: 10
         },
-        images: [
-            backgroundSrc = '',
-            movingSrc = []
-        ],
-        text: '',
+        imgroot: '',
+        bg: encounter_image("../img/encounters/01/bg.png"),
         choices: [
-            {
-
-            },
-            {
-
-            }
-        ]
+            choice_image('../img/encounters/01/1.png'),
+            choice_image('../img/encounters/01/2.png'),
+            choice_image('../img/encounters/01/3.png'),
+            choice_image('../img/encounters/01/4.png'),
+            choice_image('../img/encounters/01/5.png'),
+            choice_image('../img/encounters/01/6.png')
+        ],
+        render: function(div) {
+            div.append(this.bg);
+            div.append(choice(this.choices[0], 7, 4, function() {
+                stats({ e: 1, m: -1, r: -1, p: -2, c: 1, k: 2});
+            }));
+            div.append(choice(this.choices[1], 10, 4, function() {
+                stats({ e: 1, m: -1, r: -1, p: -2, c: 1, k: 2});
+            }));
+            div.append(choice(this.choices[2], 13, 4, function() {
+                stats({ e: 1, m: -1, r: -1, p: -2, c: 1, k: 2});
+            }));
+            div.append(choice(this.choices[3], 7, 6, function() {
+                stats({ e: 1, m: -1, r: -1, p: -2, c: 1, k: 2});
+            }));
+            div.append(choice(this.choices[4], 10, 6, function() {
+                stats({ e: 1, m: -1, r: -1, p: -2, c: 1, k: 2});
+            }));
+            div.append(choice(this.choices[5], 13, 6, function() {
+                stats({ e: 1, m: -1, r: -1, p: -2, c: 1, k: 2});
+            }));
+        }
     },
-    3: {
+    2: {
         range: {
-            start: 10,
-            end: 16
+            start: 2,
+            end: 10
         },
-        images: [
-            backgroundSrc = '',
-            movingSrc = []
-        ],
-        text: '',
+        imgroot: '',
+        bg: encounter_image("../img/encounters/02/bg.png"),
+        text: encounter_text('foo'),
         choices: [
-            {
+            choice_text('../img/encounters/01/1.png'),
+            choice_text('../img/encounters/01/2.png'),
+            choice_text('../img/encounters/01/3.png'),
+            choice_text('../img/encounters/01/4.png'),
+            choice_text('../img/encounters/01/5.png'),
+        ],
+        render: function(div) {
+            div.append(this.bg);
 
-            },
-            {
+            div.append(choice(this.text, 7, 2, function() {
+                stats({ e: 1, m: -1, r: -1, p: -2, c: 1, k: 2});
+            }));
 
-            }
-        ]
+            div.append(choice(this.choices[0], 7, 4, function() {
+                stats({ e: 1, m: -1, r: -1, p: -2, c: 1, k: 2});
+            }));
+            div.append(choice(this.choices[1], 10, 4, function() {
+                stats({ e: 1, m: -1, r: -1, p: -2, c: 1, k: 2});
+            }));
+            div.append(choice(this.choices[2], 13, 4, function() {
+                stats({ e: 1, m: -1, r: -1, p: -2, c: 1, k: 2});
+            }));
+            div.append(choice(this.choices[3], 7, 6, function() {
+                stats({ e: 1, m: -1, r: -1, p: -2, c: 1, k: 2});
+            }));
+            div.append(choice(this.choices[4], 10, 6, function() {
+                stats({ e: 1, m: -1, r: -1, p: -2, c: 1, k: 2});
+            }));
+        }
     },
-    4: {
-        range: {
-            start: 10,
-            end: 16
-        },
-        images: [
-            backgroundSrc = '',
-            movingSrc = []
-        ],
-        text: '',
-        choices: [
-            {
-
-            },
-            {
-
-            }
-        ]
-    },
-    5: {
-        range: {
-            start: 16,
-            end: 21
-        },
-        images: [
-            backgroundSrc = '',
-            movingSrc = []
-        ],
-        text: '',
-        choices: [
-            {
-
-            },
-            {
-
-            }
-        ]
-    },
-    6: {
-        range: {
-            start: 16,
-            end: 21
-        },
-        images: [
-            backgroundSrc = '',
-            movingSrc = []
-        ],
-        text: '',
-        choices: [
-            {
-
-            },
-            {
-
-            }
-        ]
-    }
 } ;
 
 MEMORIES = {
@@ -191,6 +153,13 @@ MEMORIES = {
 
 CUR = {};
 ELEM = {};
-TIME = 1;
+TIME = 2;
+
+STATS = { e: 0
+        , m: 0
+        , r: 0
+        , p: 0
+        , c: 0
+        , k: 0};
 
 $BODY = $('body');

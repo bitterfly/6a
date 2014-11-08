@@ -9,10 +9,19 @@ function mouse(x, oldx) {
 
 function start_encounter() {
     encounter = ENCOUNTERS[TIME];
-
-
+    encounter.render($("#encounter"));
+    $("#room").hide();
+    $("#encounter").show();
+    
 
     TIME += 1;
+}
+
+function choice(element, x, y, action) {
+    return grid(element, x, y).click(function() {
+        action();
+        alert(JSON.stringify(STATS));
+    });
 }
 
 $(document).ready(function() {
@@ -31,6 +40,8 @@ $(document).ready(function() {
             CUR.mousex = x;
         }
     });
+
+    $("#room").click(start_encounter);
     
     CUR.room_frames = add_images(ROOM_IMAGES, $("#room_background"));
 });
