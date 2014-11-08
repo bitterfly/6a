@@ -27,21 +27,21 @@ function show_stats() {
     for (var i = 0; i < STATS.length; i++) {
         sum += STATS[i];
     }
-    var quot = 100 / sum;
+    var quot = 100 / sum, offset = 50;
 
     $('#stats').html('');
 
-    $('#stats').append(progress('img/icons/1.png', STATS[ASPECT] * quot, 'red'));
+    $('#stats').append(progress('img/icons/1.png', offset + STATS[ASPECT] * quot, 'red'));
 
     $('#left').html('');
-    $('#left').append(progress('img/icons/1.png', STATS[0] * quot, '#c11323'));
-    $('#left').append(progress('img/icons/2.png', STATS[1] * quot, '#e77d1f'));
-    $('#left').append(progress('img/icons/3.png', STATS[2] * quot, '#d9db40'));
+    $('#left').append(progress('img/icons/1.png', offset + STATS[0] * quot, '#c11323'));
+    $('#left').append(progress('img/icons/2.png', offset + STATS[1] * quot, '#e77d1f'));
+    $('#left').append(progress('img/icons/3.png', offset + STATS[2] * quot, '#d9db40'));
 
     $('#right').html('');
-    $('#right').append(progress('img/icons/4.png', STATS[3] * quot, '#539845'));
-    $('#right').append(progress('img/icons/5.png', STATS[4] * quot, '#457098'));
-    $('#right').append(progress('img/icons/6.png', STATS[5] * quot, '#5d2c76'));
+    $('#right').append(progress('img/icons/4.png', offset + STATS[3] * quot, '#539845'));
+    $('#right').append(progress('img/icons/5.png', offset + STATS[4] * quot, '#457098'));
+    $('#right').append(progress('img/icons/6.png', offset + STATS[5] * quot, '#5d2c76'));
 }
 
 function set_frame(f_old, f_new) {
