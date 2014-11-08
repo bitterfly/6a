@@ -2,7 +2,7 @@
  * Created by Rali on 8.11.2014 г..
  */
 
-var ROOM_IMAGES = [
+ROOM_IMAGES = [
     'img/room/0001.jpg',
     'img/room/0002.jpg',
     'img/room/0003.jpg',
@@ -181,7 +181,7 @@ var ENCOUNTERS = {
     }
 } ;
 
-var MEMORIES = {
+MEMORIES = {
     0: {
         range: 2,
         effect: function () {}
@@ -211,3 +211,5 @@ var MEMORIES = {
 CUR = {};
 ELEM = {};
 TIME = 1;
+
+$BODY = $('body');
