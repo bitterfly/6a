@@ -99,7 +99,7 @@ var ENCOUNTERS = {
             choice_text('shit'),
             choice_text('poop'),
             choice_text('gs'),
-            choice_text('bla'),
+            choice_text('bla')
         ],
         render: function(div) {
             div.append(this.bg);
