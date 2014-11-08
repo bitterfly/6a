@@ -86,6 +86,12 @@ var ENCOUNTERS = {
             div.append(choice(this.choices[5], 13, 6, function() {
                 stats({ e: 1, m: -1, r: -1, p: -2, c: 1, k: 2});
             }));
+            
+            (function(hand) {
+                CUR.mouse_event = function(x, oldx) {
+                    hand.css('transform', 'rotate(-' + x / 4 + 'deg)');
+                }
+            })(this.creepy_hand);
         }
     },
     2: {
@@ -154,7 +160,7 @@ MEMORIES = {
 
 CUR = {};
 ELEM = {};
-TIME = 2;
+TIME = 1;
 
 STATS = {
     e: 0,

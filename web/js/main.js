@@ -2,11 +2,6 @@ function glob() {
     return window.globals_6a; 
 }
 
-function mouse(x, oldx) {
-    CUR.room_frames[oldx - 1].removeClass('front');
-    CUR.room_frames[x - 1].addClass('front');
-}
-
 function start_encounter() {
     var $encounter = $("#encounter");
 
@@ -16,6 +11,15 @@ function start_encounter() {
     $encounter.show();
 
     TIME += 1;
+}
+
+function show_room() {
+    $("#encounter").hide();
+    $("#room").show();
+    CUR.mouse_event = function(x, oldx) {
+        CUR.room_frames[oldx - 1].removeClass('front');
+        CUR.room_frames[x - 1].addClass('front');
+    }
 }
 
 $(document).ready(function() {
@@ -30,12 +34,13 @@ $(document).ready(function() {
             x = 40;
         }
         if (CUR.mousex != x) {
-            mouse(x, CUR.mousex);
+            CUR.mouse_event(x, CUR.mousex);
             CUR.mousex = x;
         }
     });
 
     $("#room").click(start_encounter);
+    show_room();
     
     CUR.room_frames = add_images(ROOM_IMAGES, $("#room_background"));
 });
