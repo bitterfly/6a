@@ -28,4 +28,13 @@
     left: 0px;
 }
 
+.encounter_text {
+    width: 200px;
+    height: 20px;
+}
+
+.choice_text {
+    width: 200px;
+    height: 20px;
+}
 

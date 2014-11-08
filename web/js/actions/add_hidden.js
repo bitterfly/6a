@@ -23,8 +23,20 @@ function add_images(image_urls, div) {
     return images;
 }
 
-function load_image(src) {
-    return $('<img class="encounter_bg stacked">').attr('src', src);
+function encounter_image(src) {
+    return $('<img class="encounter_img stacked">').attr('src', src);
+}
+
+function choice_image(src) {
+    return $('<img class="choice_img stacked">').attr('src', src);
+}
+
+function choice_text(text) {
+    return $('<div class="choice_text stacked">').text(text);
+}
+
+function encounter_text(text) {
+    return $('<div class="encounter_text stacked">').text(text);
 }
 
 function grid(element, x, y) {

@@ -20,6 +20,7 @@ function start_encounter() {
 function choice(element, x, y, action) {
     return grid(element, x, y).click(function() {
         action();
+        alert(JSON.stringify(STATS));
     });
 }
 
