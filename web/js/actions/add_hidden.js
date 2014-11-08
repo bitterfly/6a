@@ -9,3 +9,16 @@ function ADD_HIDDEN (data, divId) {
 
     $(divId).append(htmlstring);
 }
+
+function add_images(image_urls, div) {
+    var images = [];
+    var image = null;
+    var len = image_urls.length;
+    for (var i = 0; i < len; i++) {
+        image = $('<img class="frame" style="display: none">');
+        image.attr('src', image_urls[i]);
+        image.appendTo(div);
+        images.push(image);
+    }
+    return images;
+}
