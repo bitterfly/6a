@@ -54,6 +54,7 @@ var ENCOUNTERS = {
         imgroot: '',
         bg: encounter_image("img/encounters/01/bg.png"),
         creepy_hand: encounter_image("img/encounters/01/hand.png"),
+        goblin: encounter_image("img/encounters/01/goblin.png"),
         choices: [
             choice_image('img/encounters/01/1.png'),
             choice_image('img/encounters/01/2.png'),
@@ -64,7 +65,8 @@ var ENCOUNTERS = {
         ],
         render: function(div) {
             div.append(this.bg);
-            div.append(grid(this.creepy_hand, 4, 6));
+            div.append(grid(this.creepy_hand, 3, 5));
+            div.append(grid(this.goblin, 0, 2));
 
             div.append(choice(this.choices[0], 7, 4, function() {
                 stats({ e: 1, m: -1, r: -1, p: -2, c: 1, k: 2});
@@ -95,8 +97,8 @@ var ENCOUNTERS = {
         bg: encounter_image("img/encounters/02/bg.png"),
         text: encounter_text('foo'),
         choices: [
-            choice_text('fuck'),
-            choice_text('shit'),
+            choice_text('Защо никой не ме предупреди, какво да измисля в последния момент...  може би букет от слънчогледи.'),
+            choice_text('bla'),
             choice_text('poop'),
             choice_text('gs'),
             choice_text('bla')
