@@ -74,14 +74,14 @@ var ENCOUNTERS = {
         ],
         render: function(div) {
             div.append(this.images.bg);
-            div.append(grid(this.images.choices[0], 2, 2).click(function() {
+            div.append(grid(this.images.choices[0], 8, 4).click(function() {
                 alert("choice 0");
             }));
-            div.append(grid(this.images.choices[1], 6, 2));
-            div.append(grid(this.images.choices[2], 10, 2));
-            div.append(grid(this.images.choices[3], 2, 5));
-            div.append(grid(this.images.choices[4], 6, 5));
-            div.append(grid(this.images.choices[5], 10, 5));
+            div.append(grid(this.images.choices[1], 11, 4));
+            div.append(grid(this.images.choices[2], 14, 4));
+            div.append(grid(this.images.choices[3], 8, 6));
+            div.append(grid(this.images.choices[4], 11, 6));
+            div.append(grid(this.images.choices[5], 14, 6));
         }
     },
     2: {
