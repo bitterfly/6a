@@ -1,0 +1,11 @@
+/* главна резолюция: 1216x684 - мега яка */
+
+#container {
+    width:1216px;
+    height:684px;
+    position:absolute;
+    left:50%;
+    top:50%;
+    margin:-342 0 0 -608px;
+    background-color: #ccc;
+}
