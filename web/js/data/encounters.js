@@ -2,7 +2,7 @@
  * Created by Rali on 8.11.2014 г..
  */
 
-var encounters = {
+var ENCOUNTERS = {
     0: {
         range: {
             start: 2,
