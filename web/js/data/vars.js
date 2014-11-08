@@ -44,3 +44,148 @@ var ROOM_IMAGES = [
     '../img/room/0039.jpg',
     '../img/room/0040.jpg'
 ];
+
+var ENCOUNTERS = {
+    0: {
+        range: {
+            start: 2,
+            end: 10
+        },
+        images: [
+            backgroundSrc = '',
+            movingSrc = []
+        ],
+        text: '',
+        choices: [
+            {
+
+            },
+            {
+
+            }
+        ]
+    },
+    1: {
+        range: {
+            start: 2,
+            end: 10
+        },
+        images: [
+            backgroundSrc = '',
+            movingSrc = []
+        ],
+        text: '',
+        choices: [
+            {
+
+            },
+            {
+
+            }
+        ]
+    },
+    3: {
+        range: {
+            start: 10,
+            end: 16
+        },
+        images: [
+            backgroundSrc = '',
+            movingSrc = []
+        ],
+        text: '',
+        choices: [
+            {
+
+            },
+            {
+
+            }
+        ]
+    },
+    4: {
+        range: {
+            start: 10,
+            end: 16
+        },
+        images: [
+            backgroundSrc = '',
+            movingSrc = []
+        ],
+        text: '',
+        choices: [
+            {
+
+            },
+            {
+
+            }
+        ]
+    },
+    5: {
+        range: {
+            start: 16,
+            end: 21
+        },
+        images: [
+            backgroundSrc = '',
+            movingSrc = []
+        ],
+        text: '',
+        choices: [
+            {
+
+            },
+            {
+
+            }
+        ]
+    },
+    6: {
+        range: {
+            start: 16,
+            end: 21
+        },
+        images: [
+            backgroundSrc = '',
+            movingSrc = []
+        ],
+        text: '',
+        choices: [
+            {
+
+            },
+            {
+
+            }
+        ]
+    }
+} ;
+
+var MEMORIES = {
+    0: {
+        range: 2,
+        effect: function () {}
+    },
+    1: {
+        range: 2,
+        effect: function () {}
+    },
+    3: {
+        range: 2,
+        effect: function () {}
+    },
+    4: {
+        range: 2,
+        effect: function () {}
+    },
+    5: {
+        range: 2,
+        effect: function () {}
+    },
+    6: {
+        range: 2,
+        effect: function () {}
+    }
+} ;
+
