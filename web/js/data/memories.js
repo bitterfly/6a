@@ -2,7 +2,7 @@
  * Created by Rali on 8.11.2014 г..
  */
 
-var memories = {
+var MEMORIES = {
     0: {
         range: 2,
         effect: function () {}
