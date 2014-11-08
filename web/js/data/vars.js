@@ -46,15 +46,23 @@ var ROOM_IMAGES = [
 ];
 
 var ENCOUNTERS = {
-    0: {
+    1: {
         range: {
             start: 2,
             end: 10
         },
-        images: [
-            backgroundSrc = '',
-            movingSrc = []
-        ],
+        images: {
+            imgroot: '',
+            bg: load_image("../img/encounters/01/bg.png"),
+            choices: [
+                load_image('../img/encounters/01/c1.png'),
+                load_image('../img/encounters/01/c2.png'),
+                load_image('../img/encounters/01/c3.png'),
+                load_image('../img/encounters/01/c4.png'),
+                load_image('../img/encounters/01/c5.png'),
+                load_image('../img/encounters/01/c6.png')
+            ]
+        },
         text: '',
         choices: [
             {
@@ -63,9 +71,13 @@ var ENCOUNTERS = {
             {
 
             }
-        ]
+        ],
+        render: function(div) {
+            div.append(this.images.bg);
+            div.append(this.images.choices[0]);
+        }
     },
-    1: {
+    2: {
         range: {
             start: 2,
             end: 10

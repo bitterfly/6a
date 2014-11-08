@@ -22,3 +22,7 @@ function add_images(image_urls, div) {
     }
     return images;
 }
+
+function load_image(src) {
+    return $('<img class="encounter_bg stacked">').attr('src', src);
+}

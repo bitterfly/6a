@@ -9,8 +9,10 @@ function mouse(x, oldx) {
 
 function start_encounter() {
     encounter = ENCOUNTERS[TIME];
-
-
+    encounter.render($("#encounter"));
+    $("#room").hide();
+    $("#encounter").show();
+    
 
     TIME += 1;
 }
@@ -31,6 +33,8 @@ $(document).ready(function() {
             CUR.mousex = x;
         }
     });
+
+    $("#room").click(start_encounter);
     
     CUR.room_frames = add_images(ROOM_IMAGES, $("#room_background"));
 });
