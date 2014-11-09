@@ -2,6 +2,38 @@ function glob() {
     return window.globals_6a; 
 }
 
+function progress(icon, val) {
+   /* 
+                        <div class="iconbar">
+                            <img class="icon" src="img/icons/1.png"/>
+                            <div class="progress">
+                                <div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;">
+                                </div>
+                            </div>
+                        </div>
+    */
+    var d = $('<div class="iconbar">');
+    d.append($('<img class="icon">').attr('src', icon));
+    d.append($('<div class="progress">').append($('<div class="progress-bar" role="progressbar" aria-valuemin="0">')
+                .attr('aria-valuemax', 100).attr('aria-valuenow', val).css('width', val + '%')));
+    return d;
+}
+
+function stats() {
+    $('#stats').html('');
+    $('#stats').append(progress('img/icons/1.png', 30, 100));
+
+    $('#left').html('');
+    $('#left').append(progress('img/icons/1.png', 30, 100));
+    $('#left').append(progress('img/icons/2.png', 30, 100));
+    $('#left').append(progress('img/icons/3.png', 30, 100));
+
+    $('#right').html('');
+    $('#right').append(progress('img/icons/4.png', 30, 100));
+    $('#right').append(progress('img/icons/5.png', 30, 100));
+    $('#right').append(progress('img/icons/6.png', 30, 100));
+}
+
 function set_frame(f_old, f_new) {
     CUR.room_frames[f_old - 1].removeClass('front');
     CUR.room_frames[f_new - 1].addClass('front');
@@ -23,6 +55,7 @@ function animate_frames(from, to, callback) { // starts from from + 1
 }
 
 function show_room() {
+    stats();
     $("#brain").hide();
     $("#encounter").fadeOut(200);
     setTimeout(function() {

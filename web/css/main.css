@@ -131,3 +131,10 @@ body {
 .bottom_panel:hover .suppl {
     opacity: 1;
 }
+
+.icon {
+    height: 40px;
+    float: left;
+    margin-top: -10px;
+}
+
