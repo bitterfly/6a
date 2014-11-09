@@ -327,4 +327,6 @@ STATS = {
     k: 0
 };
 
+ASPECT = null;
+
 $BODY = $('body');

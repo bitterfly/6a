@@ -114,7 +114,13 @@ $(document).ready(function() {
         if (i > 0) {    // dirty hack
             cls += " hover_show"
         }
-        brain_stack.append(grid($('<img class="' + cls + '">').attr('src', BRAIN_IMAGES[i])
+        var click_action = function() {
+            ASPECT = i;
+            show_room();
+        }
+        brain_stack.append(grid($('<img class="' + cls + '">')
+                                .attr('src', BRAIN_IMAGES[i])
+                                .click(click_action)
             , coordinates[i][0], coordinates[i][1]));
     }
 
@@ -132,6 +138,6 @@ $(document).ready(function() {
         }
     });
     $("#room").click(start_encounter);
-    show_room();
+    // show_room();
 });
 
