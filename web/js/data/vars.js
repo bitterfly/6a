@@ -115,22 +115,22 @@ var ENCOUNTERS = {
             div.append(grid(this.goblin, 0, 1));
 
             div.append(choice(this.choices[0], 7, 4, function() {
-                stats({ e: 2, m: 1, r: -2, p: -2, c: -1, k: 2});
+                stats([ 2, 1, -2, -2, -1, 2 ]);
             }));
             div.append(choice(this.choices[1], 10, 4, function() {
-                stats({ e: 1, m: -1, r: -1, p: -2, c: 1, k: 2});
+                stats([ 1, -1, -1, -2, 1, 2 ]);
             }));
             div.append(choice(this.choices[2], 13, 4, function() {
-                stats({ e: 1, m: 2, r: -1, p: -1, c: -2, k: 1});
+                stats([ 1, 2, -1, -1, -2, 1 ]);
             }));
             div.append(choice(this.choices[3], 7, 6, function() {
-                stats({ e: -2, m: 1, r: 2, p: -1, c: -1, k: 1});
+                stats([ -2, 1, 2, -1, -1, 1 ]);
             }));
             div.append(choice(this.choices[4], 10, 6, function() {
-                stats({ e: -1, m: 1, r: 1, p: -2, c: 1, k: 2});
+                stats([ -1, 1, 1, -2, 1, 2 ]);
             }));
             div.append(choice(this.choices[5], 13, 6, function() {
-                stats({ e: 1, m: -2, r: 1, p: -1, c: 2, k: -1});
+                stats([ 1, -2, 1, -1, 2, -1 ]);
             }));
             
             (function(shadow) {
@@ -161,16 +161,16 @@ var ENCOUNTERS = {
             div.append(grid(this.text, 6, 2));
 
             div.append(choice(this.choices[0], 6, 4.2, function() {
-                stats({ e: 1, m: 1, r: -2, p: -5, c: -1, k: 2});
+                stats([ 1, 1, -2, -5, -1, 2 ]);
             }));
             div.append(choice(this.choices[1], 6, 5.7, function() {
-                stats({ e: -1, m: -1, r: 1, p: 1, c: 2, k: -2});
+                stats([ -1, -1, 1, 1, 2, 2 ]);
             }));
             div.append(choice(this.choices[2], 9, 4.2, function() {
-                stats({ e: -1, m: -2, r: 1, p: 2, c: 1, k: -1});
+                stats([ -1, -2, 1, 2, 1, -1]);
             }));
             div.append(choice(this.choices[3], 12, 4.2, function() {
-                stats({ e: -2, m: 2, r: 2, p: 1, c: -2, k: 1});
+                stats([ -2, 2, 2, 1, -2, 1 ]);
             }));
         }
     },
@@ -256,9 +256,9 @@ var ENCOUNTERS = {
                 if (meta.answer != null) {
                     // second answer is yes
                     if (meta.answer == 'yes') {
-                        stats({ e: -1, m: -1, r: -2, p: -1, c: 2, k: 2});
+                        stats([ -1, -1, -2, -1, 2, 2 ]);
                     } else {
-                        stats({ e: 1, m: 2, r: -2, p: 1, c: -2, k: 1});
+                        stats([ 1, 2, -2, 1, -2, 1 ]);
                     }
                     trigger_choice();
                 } else {
@@ -270,9 +270,9 @@ var ENCOUNTERS = {
                 if (meta.answer != null) {
                     // second answer is no
                     if (meta.answer == 'yes') {
-                        stats({ e: 2, m: 1, r: -2, p: -2, c: -1, k: -1});
+                        stats([ 2, 1, -2, -2, -1, -1 ]);
                     } else {
-                        stats({ e: -1, m: -1, r: 2, p: 2, c: 1, k: -2});
+                        stats([ -1, -1, 2, 2, 1, -2 ]);
                     }
                 } else {
                     meta.answer = 'no';
@@ -314,13 +314,15 @@ CUR = {};
 ELEM = {};
 TIME = 1;
 
-STATS = {
-    e: 0,
-    m: 0,
-    r: 0,
-    p: 0,
-    c: 0,
-    k: 0
-};
+STATS = [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+];
+
+ASPECT = null;
 
 $BODY = $('body');

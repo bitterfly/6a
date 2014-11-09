@@ -22,19 +22,26 @@ function progress(icon, val, colour) {
     return d;
 }
 
-function stats() {
+function show_stats() {
+    var sum = 0;
+    for (var i = 0; i < STATS.length; i++) {
+        sum += STATS[i];
+    }
+    var quot = 100 / sum;
+
     $('#stats').html('');
-    $('#stats').append(progress('img/icons/1.png', 30, 'red'));
+
+    $('#stats').append(progress('img/icons/1.png', STATS[ASPECT] * quot, 'red'));
 
     $('#left').html('');
-    $('#left').append(progress('img/icons/1.png', 30, '#c11323'));
-    $('#left').append(progress('img/icons/2.png', 30, '#e77d1f'));
-    $('#left').append(progress('img/icons/3.png', 30, '#d9db40'));
+    $('#left').append(progress('img/icons/1.png', STATS[0] * quot, '#c11323'));
+    $('#left').append(progress('img/icons/2.png', STATS[1] * quot, '#e77d1f'));
+    $('#left').append(progress('img/icons/3.png', STATS[2] * quot, '#d9db40'));
 
     $('#right').html('');
-    $('#right').append(progress('img/icons/4.png', 30, '#539845'));
-    $('#right').append(progress('img/icons/5.png', 30, '#457098'));
-    $('#right').append(progress('img/icons/6.png', 30, '#5d2c76'));
+    $('#right').append(progress('img/icons/4.png', STATS[3] * quot, '#539845'));
+    $('#right').append(progress('img/icons/5.png', STATS[4] * quot, '#457098'));
+    $('#right').append(progress('img/icons/6.png', STATS[5] * quot, '#5d2c76'));
 }
 
 function set_frame(f_old, f_new) {
@@ -58,7 +65,7 @@ function animate_frames(from, to, callback) { // starts from from + 1
 }
 
 function show_room() {
-    stats();
+    show_stats();
     $("#brain").hide();
     $("#encounter").fadeOut(200);
     setTimeout(function() {
@@ -114,7 +121,13 @@ $(document).ready(function() {
         if (i > 0) {    // dirty hack
             cls += " hover_show"
         }
-        brain_stack.append(grid($('<img class="' + cls + '">').attr('src', BRAIN_IMAGES[i])
+        var click_action = function() {
+            ASPECT = i;
+            show_room();
+        }
+        brain_stack.append(grid($('<img class="' + cls + '">')
+                                .attr('src', BRAIN_IMAGES[i])
+                                .click(click_action)
             , coordinates[i][0], coordinates[i][1]));
     }
 
@@ -132,6 +145,6 @@ $(document).ready(function() {
         }
     });
     $("#room").click(start_encounter);
-    show_room();
+    // show_room();
 });
 
