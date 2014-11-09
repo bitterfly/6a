@@ -54,7 +54,7 @@
     font-family: 'Exo 2', sans-serif;
 
     -moz-user-select: none;
-    background-image: url('../img/encounters/lbl2.png');
+    background-image: url('../img/encounters/02/lbl2.png');
     cursor: auto;
     display: block;
     font-weight: 400;
@@ -82,7 +82,7 @@
 
     font-family: 'Exo 2', sans-serif;
 
-    background-image: url('../img/encounters/txt.png');
+    background-image: url('../img/encounters/02/txt.png');
     cursor: auto;
     display: block;
     font-weight: 400;

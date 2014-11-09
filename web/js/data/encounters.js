@@ -1,7 +1,3 @@
-/**
- * Created by Rali on 8.11.2014 г..
- */
-
 function encounter_image(src) {
     return $('<img class="encounter_img stacked">').attr('src', src);
 }
