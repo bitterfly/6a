@@ -80,9 +80,9 @@ function start_encounter() {
 
     $encounter.html('');
     encounter = ENCOUNTERS[TIME];
-    encounter.render($encounter);
 
     CUR.mouse_event = function(x, oldx) {};
+    encounter.render($encounter);
     animate_frames(CUR.mousex, 20, function() {
         set_frame(20, 41);
         setTimeout(function() {
