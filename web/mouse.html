@@ -1,0 +1,39 @@
+<html>
+    <head>
+        <script type="text/javascript" src="lib/jquery.min.js"></script>
+        <script type="text/javascript" src="lib/jquery-ui-1.11.1/jquery-ui.js"></script>
+        <title>mouse tracker test</title>
+        <meta http-equiv="Content-Type" content="text/html, charset=utf-8" />
+
+        <script type="text/javascript">
+        <!--
+            // Идеята на съхраняването на координатите на мишката при fire-ването на 
+            // event-а mousemove в променливи, и handle-ването на извеждането им
+            // в отделна периодично викаща се функция, е да не забива браузърът
+            // (mousemove се вика *прекалено* често).
+            var cursorX, cursorY, posX = $("#posx"), posY = $("#posy");
+
+            $(document).ready(function() {
+                $("main").mousemove(function(e) {
+                    cursorX = e.pageX;
+                    cursorY = e.pageY;
+                    alert("ok");
+                });
+                
+                function checkCursor() {
+                    posX.value = cursorX;
+                    posY.value = cursorY;
+                }
+
+                setInterval("checkCursor", 100);
+            });
+        //-->
+        </script>
+    </head>
+    <body>
+        <div id="main">
+            <input type="text" id="posx" />
+            <input type="text" id="posy" />
+        </div>
+    </body>
+</html>
