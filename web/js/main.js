@@ -24,11 +24,15 @@ function animate_frames(from, to, callback) { // starts from from + 1
 
 function show_room() {
     $("#brain").hide();
-    $("#encounter").hide();
-    $("#room").show();
-    CUR.mouse_event = function(x, oldx) {
-        set_frame(oldx, x);
-    };
+    $("#encounter").fadeOut(200);
+    setTimeout(function() {
+        $("#room").fadeIn(300);
+        set_frame(80, 20);
+        CUR.mousex = 20;
+        CUR.mouse_event = function(x, oldx) {
+            set_frame(oldx, x);
+        };
+    }, 200);
 }
 
 function start_encounter() {
@@ -44,7 +48,7 @@ function start_encounter() {
         setTimeout(function() {
             animate_frames(41, 80, function() {
                 $("#room").hide();
-                $encounter.show();
+                $encounter.fadeIn(500);
             });
         }, 65);
     });
@@ -53,22 +57,9 @@ function start_encounter() {
 $(document).ready(function() {
     window.globals_6a = {};
     CUR.mousex = 20;
+    CUR.mouse_event = function() { };
 
-    $("body").mousemove(function(ev) {
-        var x = Math.ceil(ev.pageX * 40 / $(window).width());
-        if (x < 1) {
-            x = 1;
-        } else if (x > 40) {
-            x = 40;
-        }
-        if (CUR.mousex != x) {
-            CUR.mouse_event(x, CUR.mousex);
-            CUR.mousex = x;
-        }
-    });
 
-    $("#room").click(start_encounter);
-    show_room();
     
     CUR.room_frames = add_images(ROOM_IMAGES, $("#room_background"));
     var brain_stack = $("#brain_stack");
@@ -90,4 +81,20 @@ $(document).ready(function() {
         brain_stack.append(grid($('<img class="' + cls + '">').attr('src', BRAIN_IMAGES[i])
             , coordinates[i][0], coordinates[i][1]));
     }
+
+
+    $("body").mousemove(function(ev) {
+        var x = Math.ceil(ev.pageX * 40 / $(window).width());
+        if (x < 1) {
+            x = 1;
+        } else if (x > 40) {
+            x = 40;
+        }
+        if (CUR.mousex != x) {
+            CUR.mouse_event(x, CUR.mousex);
+            CUR.mousex = x;
+        }
+    });
+    $("#room").click(start_encounter);
+    show_room();
 });
