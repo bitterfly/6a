@@ -280,6 +280,8 @@ var ENCOUNTERS = {
     },
     5: {
         bg: encounter_image("img/encounters/05/bg.png"),
+        text: encounter_text("Къде с учене, къде с преписване - \n" 
+                           + "мина си матурите. А сега накъде?", 5),
         choices: [
             choice_image('img/encounters/05/1.png'),
             choice_image('img/encounters/05/2.png'),
@@ -288,15 +290,15 @@ var ENCOUNTERS = {
         render: function(div) {
             div.append(this.bg);
 
-            div.append(choice(this.choices[0], 7, 4, function() {
+            div.append(choice(this.choices[0], 1, 2, function() {
                 stats([ 0, 0, -2, 0, 0, 2 ]);
-            }));
-            div.append(choice(this.choices[1], 10, 4, function() {
+            }).attr({title: 'Отиваш в чужбина заради възможност, която нямаш тук. Но това струва майка си и баща си, а заслужаважа ли си...'}));
+            div.append(choice(this.choices[1], 7, 4, function() {
                 stats([ 1, 2, 0, -1, -2, 0 ]);
-            }));
-            div.append(choice(this.choices[2], 13, 4, function() {
+            }).attr({title: 'Все пак университетът е добър само ако си при добри преподаватели. Дали ще научиш от теб зависи, ще останеш в по-близкия университет'}));
+            div.append(choice(this.choices[2], 13, 6, function() {
                 stats([ -2, 0, 2, 2, 0, -2 ]);
-            }));
+            }).attr({title: 'Казват, че в големия образованието е по-добро, но ще понесеш ли чалгата в студентски град '}));
         }
     },
     6: {

@@ -28,7 +28,7 @@ function show_stats() {
 
     $('#stats').html('');
 
-    $('#stats').append(progress('img/icons/1.png', offset + STATS[ASPECT] * quot, 'red'));
+    $('#stats').append(progress('img/icons/1.png', offset + STATS[0] * quot, '#c11323'));
 
     $('#left').html('');
     $('#left').append(progress('img/icons/1.png', offset + STATS[0] * quot, '#c11323'));
@@ -142,6 +142,6 @@ $(document).ready(function() {
         }
     });
     $("#room").click(start_encounter);
-    // show_room();
+    $(document).tooltip();
 });
 
