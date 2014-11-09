@@ -9,8 +9,6 @@ function start_encounter() {
     encounter.render($encounter);
     $("#room").hide();
     $encounter.show();
-
-    TIME += 1;
 }
 
 function show_room() {
@@ -47,16 +45,20 @@ $(document).ready(function() {
     var brain_stack = $("#brain_stack");
     var coordinates = [
         [0, 0],
-        [0, 0],
-        [0, 0],
-        [0, 0],
-        [0, 0],
-        [0, 0],
-        [0, 0],
+        [2, 2],
+        [4, 2],
+        [6, 2],
+        [6, 4],
+        [4, 4],
+        [2, 4],
     ];
     for (var i = 0; i < BRAIN_IMAGES.length; i++) {
         var img = BRAIN_IMAGES[i];
-        brain_stack.append(grid($('<img class="stacked">').attr('src', BRAIN_IMAGES[i])
+        var cls = "stacked";
+        if (i > 0) {    // dirty hack
+            cls += " hover_show"
+        }
+        brain_stack.append(grid($('<img class="' + cls + '">').attr('src', BRAIN_IMAGES[i])
             , coordinates[i][0], coordinates[i][1]));
     }
 });

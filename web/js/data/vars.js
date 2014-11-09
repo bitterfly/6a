@@ -171,7 +171,7 @@ MEMORIES = {
 
 CUR = {};
 ELEM = {};
-TIME = 2;
+TIME = 1;
 
 STATS = {
     e: 0,
