@@ -14,6 +14,7 @@ function start_encounter() {
 }
 
 function show_room() {
+    $("#brain").hide();
     $("#encounter").hide();
     $("#room").show();
     CUR.mouse_event = function(x, oldx) {
@@ -40,7 +41,22 @@ $(document).ready(function() {
     });
 
     $("#room").click(start_encounter);
-    show_room();
+    // show_room();
     
     CUR.room_frames = add_images(ROOM_IMAGES, $("#room_background"));
+    var brain_stack = $("#brain_stack");
+    var coordinates = [
+        [0, 0],
+        [0, 0],
+        [0, 0],
+        [0, 0],
+        [0, 0],
+        [0, 0],
+        [0, 0],
+    ];
+    for (var i = 0; i < BRAIN_IMAGES.length; i++) {
+        var img = BRAIN_IMAGES[i];
+        brain_stack.append(grid($('<img class="stacked">').attr('src', BRAIN_IMAGES[i])
+            , coordinates[i][0], coordinates[i][1]));
+    }
 });
