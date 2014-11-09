@@ -24,10 +24,14 @@ function stats(stat_diff) {
     }
 }
 
+function trigger_choice() {
+    TIME += 1;
+    show_room();
+}
+
 function choice(element, x, y, action) {
     return grid(element, x, y).click(function() {
         action();
-        TIME += 1;
-        show_room();
+        trigger_choice();
     });
 }

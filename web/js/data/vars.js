@@ -178,7 +178,7 @@ var ENCOUNTERS = {
                 stats({ e: -2, m: 2, r: 2, p: 1, c: -2, k: 1});
             }));
         }
-    },
+    }, /*
     3: {
         range: {
             start: 2,
@@ -210,6 +210,54 @@ var ENCOUNTERS = {
             div.append(grid(this.no, 4, 6).click(function() {
                 if (meta.answer != null) {
                     alert(meta.answer + ' no');
+                } else {
+                    meta.answer = 'no';
+                    div.append(grid(tryagain, 8, 4));
+                }
+            }));
+        }
+    }, */
+    3: {
+        range: {
+            start: 2,
+            end: 10
+        },
+        meta: {answer: null},
+        bg: encounter_image("img/encounters/04/bg.png"),
+        text: encounter_text('Най- добрият ти приятел ти предлага бира в парка.'
+                           + 'Сядате, а той вади кутия цигари. Въпреки, че знае, че си непушач, ти предлага.'
+                           + '"Все пак не можеш да мразиш нещо, което не си опитал"'),
+        tryagain: encounter_text('Помисли пак.'),
+        yes: choice_image("img/encounters/04/yes.png"),
+        no: choice_image("img/encounters/04/no.png"),
+        render: function(div) {
+            meta = this.meta;
+            div.append(this.bg);
+            div.append(grid(this.text, 6, 2));
+            
+            var tryagain = this.tryagain;
+            div.append(grid(this.yes, 4, 4).click(function() {
+                if (meta.answer != null) {
+                    // second answer is yes
+                    if (meta.answer == 'yes') {
+                        stats({ e: -1, m: -1, r: -2, p: -1, c: 2, k: 2});
+                    } else {
+                        stats({ e: 1, m: 2, r: -2, p: 1, c: -2, k: 1});
+                    }
+                    trigger_choice();
+                } else {
+                    meta.answer = 'yes';
+                    div.append(grid(tryagain, 8, 4));
+                }
+            }));
+            div.append(grid(this.no, 4, 6).click(function() {
+                if (meta.answer != null) {
+                    // second answer is no
+                    if (meta.answer == 'yes') {
+                        stats({ e: 2, m: 1, r: -2, p: -2, c: -1, k: -1});
+                    } else {
+                        stats({ e: -1, m: -1, r: 2, p: 2, c: 1, k: -2});
+                    }
                 } else {
                     meta.answer = 'no';
                     div.append(grid(tryagain, 8, 4));
