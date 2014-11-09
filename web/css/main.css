@@ -1,5 +1,9 @@
 /* главна резолюция: 1216x684 - мега яка */
 
+body {
+    overflow: hidden;
+}
+
 #container {
     width:1216px;
     height:684px;
@@ -7,7 +11,7 @@
     left:50%;
     top:50%;
     margin:-342 0 0 -608px;
-    background-color: #ccc;
+    background-color: white;
 }
 
 .front {
@@ -96,5 +100,34 @@
 }
 
 .hover_show:hover {
+    opacity: 1;
+}
+
+.bottom_panel {
+    position: absolute;
+    top: calc(684px - 120px);
+    left: 150px;
+    width: calc(1216px - 300px);
+    height: 120px;   /* hardcoding all the way */
+    z-index: 5;
+    background-color: rgba(0, 0, 0, 0.3);
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    color: #eee;
+    padding: 30px;
+    transition: height 1s, top 1s;
+}
+
+.bottom_panel:hover {
+    top: calc(684px - 220px);
+    height: 220px;
+}
+
+.suppl {
+    opacity: 0;
+    transition: opacity 1s;
+}
+
+.bottom_panel:hover .suppl {
     opacity: 1;
 }
