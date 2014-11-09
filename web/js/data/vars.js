@@ -248,7 +248,7 @@ var ENCOUNTERS = {
             
             div.append(grid(this.text, 6, 2));
             
-            div.append(grid(this.yes, 11, 4).click(function() {
+            div.append(grid(this.yes, 10, 6).click(function() {
                 if (meta.answer != null) {
                     // second answer is yes
                     if (meta.answer == 'yes') {
@@ -258,11 +258,11 @@ var ENCOUNTERS = {
                     }
                     trigger_choice();
                 } else {
-                    text_div.append($('<div class="extra">').text('Помисли пак.'));
+                    text_div.prepend($('<div class="extra">').text('Помисли пак.'));
                     meta.answer = 'yes';
                 }
             }));
-            div.append(grid(this.no, 11, 6).click(function() {
+            div.append(grid(this.no, 13, 6).click(function() {
                 if (meta.answer != null) {
                     // second answer is no
                     if (meta.answer == 'yes') {
@@ -272,7 +272,7 @@ var ENCOUNTERS = {
                     }
                     trigger_choice();
                 } else {
-                    text_div.append($('<div class="extra">').text('Помисли пак.'));
+                    text_div.prepend($('<div class="extra">').text('Помисли пак.'));
                     meta.answer = 'no';
                 }
             }));
