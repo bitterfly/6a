@@ -28,7 +28,11 @@ function trigger_choice() {
     TIME += 1;
     if (TIME == 3)
         TIME = 4;
-    show_room();
+    if (TIME < 2) {
+        show_room();
+    } else {
+        end();
+    }
 }
 
 function choice(element, x, y, action) {

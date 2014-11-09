@@ -41,6 +41,18 @@ function show_stats() {
     $('#right').append(progress('img/icons/6.png', offset + STATS[5] * quot, '#5d2c76'));
 }
 
+function end_stats() {
+    var quot = 3;   // алгоритъмът на Радо съква и временно го заменям с тройка.
+    var offset = 50;
+
+    $('#end_bars').append(progress('img/icons/1.png', offset + STATS[0] * quot, '#c11323'));
+    $('#end_bars').append(progress('img/icons/2.png', offset + STATS[1] * quot, '#e77d1f'));
+    $('#end_bars').append(progress('img/icons/3.png', offset + STATS[2] * quot, '#d9db40'));
+    $('#end_bars').append(progress('img/icons/4.png', offset + STATS[3] * quot, '#539845'));
+    $('#end_bars').append(progress('img/icons/5.png', offset + STATS[4] * quot, '#457098'));
+    $('#end_bars').append(progress('img/icons/6.png', offset + STATS[5] * quot, '#5d2c76'));
+}
+
 function set_frame(f_old, f_new) {
     CUR.room_frames[f_old - 1].removeClass('front');
     CUR.room_frames[f_new - 1].addClass('front');
@@ -72,6 +84,14 @@ function show_room() {
         CUR.mouse_event = function(x, oldx) {
             set_frame(oldx, x);
         };
+    }, 200);
+}
+
+function end() {
+    $("#encounter").fadeOut(200);
+    setTimeout(function() {
+        $("#end").fadeIn(300);
+        end_stats();
     }, 200);
 }
 

@@ -170,3 +170,10 @@ body {
 .extra {
     color: red;
 }
+
+#end {
+    width: 1216px;
+    height: 684px;
+    padding-top: 300px;
+    background-image: url(../img/end/bg.png);
+}
