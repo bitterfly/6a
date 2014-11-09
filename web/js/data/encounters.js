@@ -6,12 +6,12 @@ function choice_image(src) {
     return $('<img class="choice_img stacked">').attr('src', src);
 }
 
-function choice_text(text) {
-    return $('<div class="choice_text stacked">').text(text);
+function choice_text(text, id) {
+    return $('<div class="choice_text stacked" id="' + id + '">').text(text);
 }
 
-function encounter_text(text) {
-    return $('<div class="encounter_text stacked">').text(text);
+function encounter_text(text, id) {
+    return $('<div class="encounter_text stacked" id="' + id + '">').text(text);
 }
 
 function grid(element, x, y) {

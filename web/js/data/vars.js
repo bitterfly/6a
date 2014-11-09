@@ -1,7 +1,3 @@
-/**
- * Created by Rali on 8.11.2014 г..
- */
-
 ROOM_IMAGES = [
     'img/room/0001.jpg',
     'img/room/0002.jpg',
@@ -154,12 +150,12 @@ var ENCOUNTERS = {
         text: encounter_text('  Настъпва първият ти учебен ден ' +
         'и по етикет на класния се носи букет. \n' +
         'Странно, но класният ти ръководител, всъщност, е мъж - ' +
-        'какъв букет ли да му поднесеш... \n'),
+        'какъв букет ли да му поднесеш... \n', 2),
         choices: [
-            choice_text('Хм... защо не букет от слънчогледи?'),
-            choice_text('Мама ще знае'),
-            choice_text('Букетите са само за учителките'),
-            choice_text('Нека да е роза')
+            choice_text('Хм... защо не букет от слънчогледи?', 21),
+            choice_text('Мама ще знае', 22),
+            choice_text('Букетите са само за учителките', 23),
+            choice_text('Нека да е роза', 24)
         ],
         render: function(div) {
             div.append(this.bg);
@@ -230,25 +226,27 @@ var ENCOUNTERS = {
                            + 'Сядате, а той вади кутия цигари. Въпреки, че знае, че си непушач, ти предлага.'
                            + '"Все пак не можеш да мразиш нещо, което не си опитал"'),
 
-        tryagain: $('<div id="tooltipClick" title="This is a tooltip that appears on click...">' +
-        '</div>').text('Помисли пак!'),
+        tryagain: function() {
+            choice_text('Помисли пак!', 3);
+
+            var $choices = $(".choice_text");
+
+            $choices.addClass("temp");
+            $choices.removeClass("choice_text");
+
+            var $temp = $(".temp");
+
+            setTimeout(function() {
+                $temp.addClass("choice_text");
+                $temp.removeClass("temp");
+            }, 3000);
+
+        },
 
         yes: choice_image("img/encounters/04/yes.png"),
         no: choice_image("img/encounters/04/no.png"),
 
         render: function(div) {
-            var $tooltipClick = $("#tooltipClick");
-
-            $tooltipClick.tooltip({
-                content: $tooltipClick.attr("title"),
-                items: this
-            })
-                .off("mouseover")
-                .on("click", function(){
-                    $(this).tooltip("open");
-                    return false;
-                })
-                .attr( "title", "" ).css({ cursor: "pointer" });
 
             meta = this.meta;
 
