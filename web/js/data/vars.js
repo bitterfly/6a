@@ -110,7 +110,7 @@ var ENCOUNTERS = {
             end: 10
         },
         imgroot: '',
-        bg: encounter_image("img/encounters/04/bg.png"),
+        bg: encounter_image("img/encounters/02/bg.png"),
         text: encounter_text('  Настъпва първият ти учебен ден ' +
         'и по етикет на класния се носи букет. \n' +
         'Странно, но класният ти ръководител, всъщност, е мъж - ' +
