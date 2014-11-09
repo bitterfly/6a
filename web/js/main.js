@@ -2,7 +2,10 @@ function glob() {
     return window.globals_6a; 
 }
 
-function progress(icon, val) {
+function progress(icon, val, colour) {
+    if (colour == null) {
+        colour = 'green'
+    }
    /* 
                         <div class="iconbar">
                             <img class="icon" src="img/icons/1.png"/>
@@ -15,7 +18,7 @@ function progress(icon, val) {
     var d = $('<div class="iconbar">');
     d.append($('<img class="icon">').attr('src', icon));
     d.append($('<div class="progress">').append($('<div class="progress-bar" role="progressbar" aria-valuemin="0">')
-                .attr('aria-valuemax', 100).attr('aria-valuenow', val).css('width', val + '%')));
+                .attr('aria-valuemax', 100).attr('aria-valuenow', val).css('width', val + '%').css('background-image', 'none').css('background-color', colour)));
     return d;
 }
 
@@ -23,17 +26,18 @@ function stats() {
     var quot = 100 / (STATS.e + STATS.m + STATS.r + STATS.p + STATS.c + STATS.k);
 
     $('#stats').html('');
-    $('#stats').append(progress('img/icons/1.png', STATS.e * quot));
+
+    $('#stats').append(progress('img/icons/1.png', STATS.e * quot, 'red'));
 
     $('#left').html('');
-    $('#left').append(progress('img/icons/1.png', STATS.e * quot));
-    $('#left').append(progress('img/icons/2.png', STATS.m * quot));
-    $('#left').append(progress('img/icons/3.png', STATS.r * quot));
+    $('#left').append(progress('img/icons/1.png', STATS.e * quot, '#c11323'));
+    $('#left').append(progress('img/icons/2.png', STATS.m * quot, '#e77d1f'));
+    $('#left').append(progress('img/icons/3.png', STATS.r * quot, '#d9db40'));
 
     $('#right').html('');
-    $('#right').append(progress('img/icons/4.png', STATS.p * quot));
-    $('#right').append(progress('img/icons/5.png', STATS.c * quot));
-    $('#right').append(progress('img/icons/6.png', STATS.k * quot));
+    $('#right').append(progress('img/icons/4.png', STATS.p * quot, '#539845'));
+    $('#right').append(progress('img/icons/5.png', STATS.c * quot, '#457098'));
+    $('#right').append(progress('img/icons/6.png', STATS.k * quot, '#5d2c76'));
 }
 
 function set_frame(f_old, f_new) {
