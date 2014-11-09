@@ -45,6 +45,14 @@ function end_stats() {
     var quot = 3;   // алгоритъмът на Радо съква и временно го заменям с тройка.
     var offset = 50;
 
+    var max_index = 0;
+    for (var i = 1; i < 6; i++) {
+        if (STATS[i] > STATS[max_index])
+            max_index = i
+    }
+
+    $('#end_bars').append($('<img id="winner">').attr('src', 'img/icons/' + (max_index + 1) + '.png'));
+
     $('#end_bars').append(progress('img/icons/1.png', offset + STATS[0] * quot, '#c11323'));
     $('#end_bars').append(progress('img/icons/2.png', offset + STATS[1] * quot, '#e77d1f'));
     $('#end_bars').append(progress('img/icons/3.png', offset + STATS[2] * quot, '#d9db40'));
@@ -165,6 +173,7 @@ $(document).ready(function() {
     ];
     tree_stack.append(grid($('<img class="stacked">')
                             .attr('src', TREE_IMAGES[0])
+                            .attr('data', 0)
                             .click(function() {
                                 $("#tree").hide();
                             })
@@ -173,10 +182,19 @@ $(document).ready(function() {
         var img = TREE_IMAGES[i];
         var cls = "stacked inactive";
         var click_action = function(ev) {
-            $(this).removeClass('inactive');
+            if (TP > 0) {
+                var current = TREE[$(this).attr('data')];
+                var par = TREE[current.parent];
+                if (par == null || par.active) {
+                    TP -= 1;
+                    $(this).removeClass('inactive');
+                    current.active = true;
+                }
+            }
         }
         tree_stack.append(grid($('<img class="' + cls + '">')
                                 .attr('src', TREE_IMAGES[i])
+                                .attr('data', i)
                                 .click(click_action)
             , coordinates[i][0], coordinates[i][1]));
     }

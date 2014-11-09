@@ -25,10 +25,12 @@ function stats(stat_diff) {
 }
 
 function trigger_choice() {
+    TP += 3;
+    $("#tp").text(TP);
     TIME += 1;
     if (TIME == 3)
         TIME = 4;
-    if (TIME < 2) {
+    if (TIME <= 6) {
         show_room();
     } else {
         end();

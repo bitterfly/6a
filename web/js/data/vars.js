@@ -106,6 +106,22 @@ TREE_IMAGES = [
     'img/habit/16.png'
 ];
 
+TREE = {
+    1: {parent: null, active: false},
+    2: {parent: 1, active: false},
+    3: {parent: 1, active: false},
+    4: {parent: 2, active: false},
+    5: {parent: 2, active: false},
+    6: {parent: 3, active: false},
+    7: {parent: 6, active: false},
+    8: {parent: null, active: false},
+    9: {parent: 8, active: false},
+    10: {parent: 9, active: false},
+    11: {parent: 9, active: false}
+}
+
+
+
 var ENCOUNTERS = {
     1: {
         bg: encounter_image("img/encounters/01/bg.png"),
@@ -304,6 +320,7 @@ var ENCOUNTERS = {
         ],
         render: function(div) {
             div.append(this.bg);
+            div.append(grid(this.text, 3, 0));
 
             div.append(choice(this.choices[0], 1, 2, function() {
                 stats([ 0, 0, -2, 0, 0, 2 ]);
@@ -318,16 +335,14 @@ var ENCOUNTERS = {
     },
     6: {
         bg: encounter_image("img/encounters/06/bg.png"),
-        text: encounter_text('  Настъпва първият ти учебен ден ' +
-        'и по пътя към училище минаваш покрай няколко цветаря. \n' +
-        'Класният ти, обаче, е мъж - ще купиш ли цвете? \n', 2),
+        text: encounter_text('Попадаш на архаичен лектор, който те кара да "пееш" материала, а дали го разбираш не е важно. Време ли е за промяна?', 2),
         choices: [
-            choice_text('Нещо различно тогава... слънчогледи', 61),
-            choice_text('Мама вече се погрижи', 62),
-            choice_text('Букетите са само за учителките', 63),
-            choice_text('Обичайното - роза', 64),
-            choice_text('Обичайното - роза', 65),
-            choice_text('Обичайното - роза', 66)
+            choice_text('Какво значение има: преписан изпит - взет изпит, важна е дипломата', 61),
+            choice_text('Разгорещено обясняваш на лектора какво и как да промени.', 62),
+            choice_text('Подаваш оплакване до висша инстанция', 63),
+            choice_text('Кой съм аз да определям дали лекторите са добри?', 64),
+            choice_text('Ще си назубря за изпита, ако материалът ми трябва - има Google ', 65),
+            choice_text('Събирам подписка с мнения за лектора и я пращам "нагоре по етажите"', 66)
         ],
         render: function(div) {
             div.append(this.bg);
@@ -385,6 +400,7 @@ MEMORIES = {
 CUR = {};
 ELEM = {};
 TIME = 1;
+TP = 0;
 
 STATS = [
     0,
