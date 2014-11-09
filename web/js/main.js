@@ -148,6 +148,38 @@ $(document).ready(function() {
             , coordinates[i][0], coordinates[i][1]));
     }
 
+    var tree_stack = $("#tree");
+    var coordinates = [
+        [0, 0],
+        [3, 7],
+        [1, 5],
+        [5, 5],
+        [0, 2],
+        [2, 2],
+        [4, 2],
+        [4, 0],
+        [11, 7],
+        [11, 4],
+        [9, 2],
+        [13, 2],
+    ];
+    tree_stack.append(grid($('<img class="stacked">')
+                            .attr('src', TREE_IMAGES[0])
+                            .click(function() {
+                                $("#tree").hide();
+                            })
+        , coordinates[0][0], coordinates[0][1]));
+    for (var i = 1; i < TREE_IMAGES.length; i++) {
+        var img = TREE_IMAGES[i];
+        var cls = "stacked inactive";
+        var click_action = function(ev) {
+            $(this).removeClass('inactive');
+        }
+        tree_stack.append(grid($('<img class="' + cls + '">')
+                                .attr('src', TREE_IMAGES[i])
+                                .click(click_action)
+            , coordinates[i][0], coordinates[i][1]));
+    }
 
     $("body").mousemove(function(ev) {
         var x = Math.ceil(ev.pageX * 40 / $(window).width());
@@ -161,7 +193,11 @@ $(document).ready(function() {
             CUR.mousex = x;
         }
     });
-    $("#room").click(start_encounter);
+    $(".frame").click(start_encounter);
+
+    $("#tree_icon").click(function() {
+        $("#tree").show();
+    });
     $(document).tooltip();
 });
 

@@ -91,6 +91,21 @@ BRAIN_IMAGES = [
     'img/brain/6.png'
 ];
 
+TREE_IMAGES = [
+    'img/habit/Background.png',
+    'img/habit/1.png',
+    'img/habit/2.png',
+    'img/habit/3.png',
+    'img/habit/4.png',
+    'img/habit/5.png',
+    'img/habit/6.png',
+    'img/habit/7.png',
+    'img/habit/8.png',
+    'img/habit/9.png',
+    'img/habit/15.png',
+    'img/habit/16.png'
+];
+
 var ENCOUNTERS = {
     1: {
         bg: encounter_image("img/encounters/01/bg.png"),
