@@ -230,8 +230,8 @@ var ENCOUNTERS = {
                            + 'Сядате, а той вади кутия цигари. Въпреки, че знае, че си непушач, ти предлага.'
                            + '"Все пак не можеш да мразиш нещо, което не си опитал"'),
 
-        tryagain: $('<span id="tooltipClick" title="This is a tooltip that appears on click...">' +
-        'Tooltip on Click</span>').text('Помисли пак.'),
+        tryagain: $('<div id="tooltipClick" title="This is a tooltip that appears on click...">' +
+        'Помисли пак.</div>'),
 
         yes: choice_image("img/encounters/04/yes.png"),
         no: choice_image("img/encounters/04/no.png"),
@@ -239,14 +239,14 @@ var ENCOUNTERS = {
         render: function(div) {
             var $tooltipClick = $("#tooltipClick");
 
-            $tooltip.tooltipClick({
+            $tooltipClick.tooltip({
                 content: $tooltipClick.attr( "title" ),
-                items: thiss
+                items: this
             })
-                .off( "mouseover" )
-                .on( "click", function(){
-                    $( this ).tooltip( "open" );
-                    return false;
+                .off("mouseover")
+                .on("click", function(){
+                    $(this).tooltip( "open" );
+                    /*return false;*/
                 })
                 .attr( "title", "" ).css({ cursor: "pointer" });
 
