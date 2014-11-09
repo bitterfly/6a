@@ -116,26 +116,25 @@ var ENCOUNTERS = {
         'Странно, но класният ти ръководител, всъщност, е мъж - ' +
         'какъв букет ли да му поднесеш... \n'),
         choices: [
-            choice_text('Защо никой не ме предупреди какво да измисля в последния момент...  ' +
-            'може би букет от слънчогледи.'),
-            choice_text('Мама ще знае.'),
-            choice_text('Букетите са само за учителките.'),
-            choice_text('Класен ръководител е, значи се очаква да има букет. Ще му взема роза.')
+            choice_text('Хм... защо не букет от слънчогледи?'),
+            choice_text('Мама ще знае'),
+            choice_text('Букетите са само за учителките'),
+            choice_text('Нека да е роза')
         ],
         render: function(div) {
             div.append(this.bg);
             div.append(grid(this.text, 6, 2));
 
-            div.append(choice(this.choices[0], 7, 4, function() {
+            div.append(choice(this.choices[0], 6, 4.2, function() {
                 stats({ e: 1, m: 1, r: -2, p: -5, c: -1, k: 2});
             }));
-            div.append(choice(this.choices[1], 7, 6, function() {
+            div.append(choice(this.choices[1], 6, 5.7, function() {
                 stats({ e: -1, m: -1, r: 1, p: 1, c: 2, k: -2});
             }));
-            div.append(choice(this.choices[2], 10, 4, function() {
+            div.append(choice(this.choices[2], 9, 4.2, function() {
                 stats({ e: -1, m: -2, r: 1, p: 2, c: 1, k: -1});
             }));
-            div.append(choice(this.choices[3], 13, 4, function() {
+            div.append(choice(this.choices[3], 12, 4.2, function() {
                 stats({ e: -2, m: 2, r: 2, p: 1, c: -2, k: 1});
             }));
         }
