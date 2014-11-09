@@ -45,6 +45,16 @@ ROOM_IMAGES = [
     'img/room/0040.jpg'
 ];
 
+BRAIN_IMAGES = [
+    'img/brain/bg.png',
+    'img/brain/1.png',
+    'img/brain/2.png',
+    'img/brain/3.png',
+    'img/brain/4.png',
+    'img/brain/5.png',
+    'img/brain/6.png'
+]
+
 var ENCOUNTERS = {
     1: {
         range: {
@@ -53,7 +63,7 @@ var ENCOUNTERS = {
         },
         imgroot: '',
         bg: encounter_image("img/encounters/01/bg.png"),
-        creepy_hand: encounter_image("img/encounters/01/hand.png"),
+        shadow: encounter_image("img/encounters/01/shadow.png"),
         goblin: encounter_image("img/encounters/01/goblin.png"),
         choices: [
             choice_image('img/encounters/01/1.png'),
@@ -65,27 +75,33 @@ var ENCOUNTERS = {
         ],
         render: function(div) {
             div.append(this.bg);
-            div.append(grid(this.creepy_hand, 3, 5));
-            div.append(grid(this.goblin, 0, 2));
+            div.append(grid(this.shadow, 0, 1));
+            div.append(grid(this.goblin, 0, 1));
 
             div.append(choice(this.choices[0], 7, 4, function() {
-                stats({ e: 1, m: -1, r: -1, p: -2, c: 1, k: 2});
+                stats({ e: 2, m: 1, r: -2, p: -2, c: -1, k: 2});
             }));
             div.append(choice(this.choices[1], 10, 4, function() {
                 stats({ e: 1, m: -1, r: -1, p: -2, c: 1, k: 2});
             }));
             div.append(choice(this.choices[2], 13, 4, function() {
-                stats({ e: 1, m: -1, r: -1, p: -2, c: 1, k: 2});
+                stats({ e: 1, m: 2, r: -1, p: -1, c: -2, k: 1});
             }));
             div.append(choice(this.choices[3], 7, 6, function() {
-                stats({ e: 1, m: -1, r: -1, p: -2, c: 1, k: 2});
+                stats({ e: -2, m: 1, r: 2, p: -1, c: -1, k: 1});
             }));
             div.append(choice(this.choices[4], 10, 6, function() {
-                stats({ e: 1, m: -1, r: -1, p: -2, c: 1, k: 2});
+                stats({ e: -1, m: 1, r: 1, p: -2, c: 1, k: 2});
             }));
             div.append(choice(this.choices[5], 13, 6, function() {
-                stats({ e: 1, m: -1, r: -1, p: -2, c: 1, k: 2});
+                stats({ e: 1, m: -2, r: 1, p: -1, c: 2, k: -1});
             }));
+            
+            (function(shadow) {
+                CUR.mouse_event = function(x, oldx) {
+                    shadow.css('transform', 'translateX(' + x / 2 + 'px)');
+                }
+            })(this.shadow);
         }
     },
     2: {
@@ -95,31 +111,69 @@ var ENCOUNTERS = {
         },
         imgroot: '',
         bg: encounter_image("img/encounters/02/bg.png"),
-        text: encounter_text('За съжаление, в живота на всяко дете настъпва първият учебен ден и според обичая на класния ръководител се носи букет. По някакво странно стечение на обстоятеластвата класният ръководител на новия ти клас е мъж- Господин Господинов. Всички се чудите какъв букет е добре да му поднесете.'),
+        text: encounter_text('  Настъпва първият ти учебен ден ' +
+        'и по етикет на класния се носи букет. \n' +
+        'Странно, но класният ти ръководител, всъщност, е мъж - ' +
+        'какъв букет ли да му поднесеш... \n'),
         choices: [
-            choice_text('Защо никой не ме предупреди какво да измисля в последния момент...  може би букет от слънчогледи.'),
-            choice_text('Мама ще знае.'),
-            choice_text('Букетите са само за учителките.'),
-            choice_text('Класен ръководител е, значи се очаква да има букет. Ще му взема роза.'),
+            choice_text('Хм... защо не букет от слънчогледи?'),
+            choice_text('Мама ще знае'),
+            choice_text('Букетите са само за учителките'),
+            choice_text('Нека да е роза')
         ],
         render: function(div) {
             div.append(this.bg);
+            div.append(grid(this.text, 6, 2));
 
-            div.append(choice(this.text, 7, 2, function() {
-                stats({ e: 1, m: -1, r: -1, p: -2, c: 1, k: 2});
+            div.append(choice(this.choices[0], 6, 4.2, function() {
+                stats({ e: 1, m: 1, r: -2, p: -5, c: -1, k: 2});
             }));
-
-            div.append(choice(this.choices[0], 7, 4, function() {
-                stats({ e: 1, m: -1, r: -1, p: -2, c: 1, k: 2});
+            div.append(choice(this.choices[1], 6, 5.7, function() {
+                stats({ e: -1, m: -1, r: 1, p: 1, c: 2, k: -2});
             }));
-            div.append(choice(this.choices[1], 10, 4, function() {
-                stats({ e: 1, m: -1, r: -1, p: -2, c: 1, k: 2});
+            div.append(choice(this.choices[2], 9, 4.2, function() {
+                stats({ e: -1, m: -2, r: 1, p: 2, c: 1, k: -1});
             }));
-            div.append(choice(this.choices[2], 13, 4, function() {
-                stats({ e: 1, m: -1, r: -1, p: -2, c: 1, k: 2});
+            div.append(choice(this.choices[3], 12, 4.2, function() {
+                stats({ e: -2, m: 2, r: 2, p: 1, c: -2, k: 1});
             }));
-            div.append(choice(this.choices[3], 7, 6, function() {
-                stats({ e: 1, m: -1, r: -1, p: -2, c: 1, k: 2});
+        }
+    },
+    3: {
+        range: {
+            start: 2,
+            end: 10
+        },
+        meta: {answer: null},
+        bg: encounter_image("img/encounters/04/bg.png"),
+        text: encounter_text('  Настъпва първият ти учебен ден ' +
+        'и по етикет на класния се носи букет. \n' +
+        'Странно, но класният ти ръководител, всъщност, е мъж - ' +
+        'какъв букет ли да му поднесеш... \n'),
+        tryagain: encounter_text('Помисли пак.'),
+        yes: choice_image("img/encounters/04/yes.png"),
+        no: choice_image("img/encounters/04/no.png"),
+        render: function(div) {
+            meta = this.meta;
+            div.append(this.bg);
+            div.append(grid(this.text, 6, 2));
+            
+            var tryagain = this.tryagain;
+            div.append(grid(this.yes, 4, 4).click(function() {
+                if (meta.answer != null) {
+                    alert(meta.answer + ' yes');
+                } else {
+                    meta.answer = 'yes';
+                    div.append(grid(tryagain, 8, 4));
+                }
+            }));
+            div.append(grid(this.no, 4, 6).click(function() {
+                if (meta.answer != null) {
+                    alert(meta.answer + ' no');
+                } else {
+                    meta.answer = 'no';
+                    div.append(grid(tryagain, 8, 4));
+                }
             }));
         }
     },
@@ -154,7 +208,7 @@ MEMORIES = {
 
 CUR = {};
 ELEM = {};
-TIME = 2;
+TIME = 1;
 
 STATS = {
     e: 0,

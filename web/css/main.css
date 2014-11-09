@@ -28,35 +28,69 @@
     left: 0px;
 }
 
-.encounter_text {
-    width: 200px;
-    height: 20px;
-}
-
 .choice_text {
     width: 200px;
     height: 20px;
 }
 
 .encounter_text {
-    height: 45px;
-    width: 100px;
+    height: 120px;
+    width: 650px;
+
+    float: right;
+
+    background-color: #f9f9f9;
 
     border-radius: 6px;
-    font-size: 18px;
+    font-size: 21px;
     line-height: 1.33;
-    padding: 10px 16px;
-    background-color: darkkhaki;
-    border-color: #ccc;
-    color: #333;
+    padding: 15px 16px;
+    color: #333333;
+
+    font-family: 'Exo 2', sans-serif;
 
     -moz-user-select: none;
     background-image: none;
-    cursor: pointer;
-    display: inline-block;
+    cursor: auto;
+    display: block;
     font-weight: 400;
     margin-bottom: 0;
-    text-align: center;
+    text-align: left;
     vertical-align: middle;
-    white-space: nowrap;
+}
+
+.choice_text {
+    min-height: 75px;
+
+    max-height: 200px;
+    max-width: 240px;
+
+    float: right;
+
+    background-color: #f9f9f9;
+
+    border-radius: 6px;
+    font-size: 16px;
+    line-height: 1.33;
+    padding: 15px 16px;
+    color: #333333;
+
+    font-family: 'Exo 2', sans-serif;
+
+    -moz-user-select: none;
+    background-image: none;
+    cursor: auto;
+    display: block;
+    font-weight: 400;
+    margin-bottom: 0;
+    text-align: left;
+    vertical-align: middle;
+}
+
+.hover_show {
+    opacity: 0;
+}
+
+.hover_show:hover {
+    opacity: 1;
 }
