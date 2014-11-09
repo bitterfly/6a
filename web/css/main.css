@@ -39,9 +39,13 @@
 
     float: right;
 
-    background-color: #f9f9f9;
-
     border-radius: 6px;
+    border-style: solid;
+    border-color: #251e0d;
+
+    background-size: 101% 100%;
+    background-repeat: no-repeat;
+
     font-size: 21px;
     line-height: 1.33;
     padding: 15px 16px;
@@ -50,7 +54,7 @@
     font-family: 'Exo 2', sans-serif;
 
     -moz-user-select: none;
-    background-image: none;
+    background-image: url('../img/encounters/lbl2.png');
     cursor: auto;
     display: block;
     font-weight: 400;
@@ -74,7 +78,7 @@
     font-size: 16px;
     line-height: 1.33;
     padding: 12px 16px;
-    color: #000;
+    color: #333333;
 
     font-family: 'Exo 2', sans-serif;
 
