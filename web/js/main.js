@@ -5,6 +5,7 @@ function glob() {
 function start_encounter() {
     var $encounter = $("#encounter");
 
+    $encounter.html('');
     encounter = ENCOUNTERS[TIME];
     encounter.render($encounter);
     $("#room").hide();
