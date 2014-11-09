@@ -2,7 +2,10 @@ function glob() {
     return window.globals_6a; 
 }
 
-function progress(icon, val) {
+function progress(icon, val, colour) {
+    if (colour == null) {
+        colour = 'green'
+    }
    /* 
                         <div class="iconbar">
                             <img class="icon" src="img/icons/1.png"/>
@@ -15,23 +18,23 @@ function progress(icon, val) {
     var d = $('<div class="iconbar">');
     d.append($('<img class="icon">').attr('src', icon));
     d.append($('<div class="progress">').append($('<div class="progress-bar" role="progressbar" aria-valuemin="0">')
-                .attr('aria-valuemax', 100).attr('aria-valuenow', val).css('width', val + '%')));
+                .attr('aria-valuemax', 100).attr('aria-valuenow', val).css('width', val + '%').css('background-image', 'none').css('background-color', colour)));
     return d;
 }
 
 function stats() {
     $('#stats').html('');
-    $('#stats').append(progress('img/icons/1.png', 30, 100));
+    $('#stats').append(progress('img/icons/1.png', 30, 'red'));
 
     $('#left').html('');
-    $('#left').append(progress('img/icons/1.png', 30, 100));
-    $('#left').append(progress('img/icons/2.png', 30, 100));
-    $('#left').append(progress('img/icons/3.png', 30, 100));
+    $('#left').append(progress('img/icons/1.png', 30, '#c11323'));
+    $('#left').append(progress('img/icons/2.png', 30, '#e77d1f'));
+    $('#left').append(progress('img/icons/3.png', 30, '#d9db40'));
 
     $('#right').html('');
-    $('#right').append(progress('img/icons/4.png', 30, 100));
-    $('#right').append(progress('img/icons/5.png', 30, 100));
-    $('#right').append(progress('img/icons/6.png', 30, 100));
+    $('#right').append(progress('img/icons/4.png', 30, '#539845'));
+    $('#right').append(progress('img/icons/5.png', 30, '#457098'));
+    $('#right').append(progress('img/icons/6.png', 30, '#5d2c76'));
 }
 
 function set_frame(f_old, f_new) {

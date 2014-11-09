@@ -174,14 +174,14 @@ var ENCOUNTERS = {
                 stats({ e: -2, m: 2, r: 2, p: 1, c: -2, k: 1});
             }));
         }
-    }, /*
+    },
     3: {
         range: {
             start: 2,
             end: 10
         },
         meta: {answer: null},
-        bg: encounter_image("img/encounters/04/bg.png"),
+        bg: encounter_image("img/encounters/03/bg.png"),
         text: encounter_text('  Настъпва първият ти учебен ден ' +
         'и по етикет на класния се носи букет. \n' +
         'Странно, но класният ти ръководител, всъщност, е мъж - ' +
@@ -212,8 +212,8 @@ var ENCOUNTERS = {
                 }
             }));
         }
-    }, */
-    3: {
+    },
+    4: {
         range: {
             start: 2,
             end: 10
