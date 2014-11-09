@@ -5,7 +5,7 @@ function glob() {
 function set_frame(f_old, f_new) {
     CUR.room_frames[f_old - 1].removeClass('front');
     CUR.room_frames[f_new - 1].addClass('front');
-};
+}
 
 function animate_frames(from, to, callback) { // starts from from + 1
     var new_from;

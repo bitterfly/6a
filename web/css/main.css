@@ -91,6 +91,15 @@
     vertical-align: middle;
 }
 
+.choice_img {
+    position: absolute;
+
+    float: right;
+
+    top: 440px;
+    right: 100px;
+}
+
 .hover_show {
     opacity: 0;
 }
