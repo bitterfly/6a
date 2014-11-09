@@ -150,6 +150,7 @@ var ENCOUNTERS = {
         'и по етикет на класния се носи букет. \n' +
         'Странно, но класният ти ръководител, всъщност, е мъж - ' +
         'какъв букет ли да му поднесеш... \n'),
+        tryagain: encounter_text('Помисли пак.'),
         yes: choice_image("img/encounters/04/yes.png"),
         no: choice_image("img/encounters/04/no.png"),
         render: function(div) {
@@ -157,18 +158,21 @@ var ENCOUNTERS = {
             div.append(this.bg);
             div.append(grid(this.text, 6, 2));
             
+                    div.append(grid(this.tryagain, 8, 4));
             div.append(grid(this.yes, 4, 4).click(function() {
                 if (meta.answer != null) {
                     alert(meta.answer + ' yes');
                 } else {
                     meta.answer = 'yes';
+                    div.append(grid(this.tryagain, 8, 4));
                 }
             }));
-            div.append(grid(this.no, 8, 4).click(function() {
+            div.append(grid(this.no, 4, 6).click(function() {
                 if (meta.answer != null) {
                     alert(meta.answer + ' no');
                 } else {
                     meta.answer = 'no';
+                    div.append(grid(this.tryagain, 8, 4));
                 }
             }));
         }
