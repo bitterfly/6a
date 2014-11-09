@@ -60,15 +60,17 @@
 }
 
 .choice_text {
-    height: 120px;
-    width: 650px;
+    min-height: 75px;
+
+    max-height: 200px;
+    max-width: 240px;
 
     float: right;
 
     background-color: #f9f9f9;
 
     border-radius: 6px;
-    font-size: 18px;
+    font-size: 16px;
     line-height: 1.33;
     padding: 15px 16px;
     color: #333333;
