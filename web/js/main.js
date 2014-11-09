@@ -2,14 +2,24 @@ function glob() {
     return window.globals_6a; 
 }
 
-function start_encounter() {
-    var $encounter = $("#encounter");
+function set_frame(f_old, f_new) {
+    CUR.room_frames[f_old - 1].removeClass('front');
+    CUR.room_frames[f_new - 1].addClass('front');
+};
 
-    $encounter.html('');
-    encounter = ENCOUNTERS[TIME];
-    encounter.render($encounter);
-    $("#room").hide();
-    $encounter.show();
+function animate_frames(from, to, callback) { // starts from from + 1
+    var new_from;
+    if (from != to) {
+        if (from < to) {
+            new_from = from + 1;
+        } else {
+            new_from = from - 1;
+        }
+        set_frame(from, new_from);
+        setTimeout(function() { animate_frames(new_from, to, callback) }, 65);
+    } else {
+        setTimeout(callback, 65);
+    }
 }
 
 function show_room() {
@@ -17,9 +27,27 @@ function show_room() {
     $("#encounter").hide();
     $("#room").show();
     CUR.mouse_event = function(x, oldx) {
-        CUR.room_frames[oldx - 1].removeClass('front');
-        CUR.room_frames[x - 1].addClass('front');
-    }
+        set_frame(oldx, x);
+    };
+}
+
+function start_encounter() {
+    var $encounter = $("#encounter");
+
+    $encounter.html('');
+    encounter = ENCOUNTERS[TIME];
+    encounter.render($encounter);
+
+    CUR.mouse_event = function(x, oldx) {};
+    animate_frames(CUR.mousex, 20, function() {
+        set_frame(20, 41);
+        setTimeout(function() {
+            animate_frames(41, 80, function() {
+                $("#room").hide();
+                $encounter.show();
+            });
+        }, 65);
+    });
 }
 
 $(document).ready(function() {

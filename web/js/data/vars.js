@@ -42,7 +42,47 @@ ROOM_IMAGES = [
     'img/room/0037.jpg',
     'img/room/0038.jpg',
     'img/room/0039.jpg',
-    'img/room/0040.jpg'
+    'img/room/0040.jpg',
+    'img/room/0041.jpg',
+    'img/room/0042.jpg',
+    'img/room/0043.jpg',
+    'img/room/0044.jpg',
+    'img/room/0045.jpg',
+    'img/room/0046.jpg',
+    'img/room/0047.jpg',
+    'img/room/0048.jpg',
+    'img/room/0049.jpg',
+    'img/room/0050.jpg',
+    'img/room/0051.jpg',
+    'img/room/0052.jpg',
+    'img/room/0053.jpg',
+    'img/room/0054.jpg',
+    'img/room/0055.jpg',
+    'img/room/0056.jpg',
+    'img/room/0057.jpg',
+    'img/room/0058.jpg',
+    'img/room/0059.jpg',
+    'img/room/0060.jpg',
+    'img/room/0061.jpg',
+    'img/room/0062.jpg',
+    'img/room/0063.jpg',
+    'img/room/0064.jpg',
+    'img/room/0065.jpg',
+    'img/room/0066.jpg',
+    'img/room/0067.jpg',
+    'img/room/0068.jpg',
+    'img/room/0069.jpg',
+    'img/room/0070.jpg',
+    'img/room/0071.jpg',
+    'img/room/0072.jpg',
+    'img/room/0073.jpg',
+    'img/room/0074.jpg',
+    'img/room/0075.jpg',
+    'img/room/0076.jpg',
+    'img/room/0077.jpg',
+    'img/room/0078.jpg',
+    'img/room/0079.jpg',
+    'img/room/0080.jpg'
 ];
 
 BRAIN_IMAGES = [
@@ -53,7 +93,7 @@ BRAIN_IMAGES = [
     'img/brain/4.png',
     'img/brain/5.png',
     'img/brain/6.png'
-]
+];
 
 var ENCOUNTERS = {
     1: {
