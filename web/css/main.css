@@ -141,6 +141,7 @@ body {
     opacity: 1;
 }
 
+<<<<<<< HEAD
 /*.temp {
     position: relative;
     display: inline;
@@ -160,3 +161,11 @@ body {
     margin-left: -76px;
     z-index: 999;
 }*/
+=======
+.icon {
+    height: 40px;
+    float: left;
+    margin-top: -10px;
+}
+
+>>>>>>> ff652182903167b384eb7dcd63ca964a440ffb35
