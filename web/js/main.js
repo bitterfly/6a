@@ -23,11 +23,8 @@ function progress(icon, val, colour) {
 }
 
 function show_stats() {
-    var sum = 0;
-    for (var i = 0; i < STATS.length; i++) {
-        sum += STATS[i];
-    }
-    var quot = 100 / sum, offset = 50;
+    var quot = 3;   // алгоритъмът на Радо съква и временно го заменям с тройка.
+    var offset = 50;
 
     $('#stats').html('');
 
