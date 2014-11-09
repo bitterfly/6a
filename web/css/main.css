@@ -68,7 +68,7 @@ body {
 }
 
 .choice_text {
-    min-height: 75px;
+    min-height: 90px;
 
     max-height: 200px;
     max-width: 240px;
