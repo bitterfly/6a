@@ -42,7 +42,47 @@ ROOM_IMAGES = [
     'img/room/0037.jpg',
     'img/room/0038.jpg',
     'img/room/0039.jpg',
-    'img/room/0040.jpg'
+    'img/room/0040.jpg',
+    'img/room/0041.jpg',
+    'img/room/0042.jpg',
+    'img/room/0043.jpg',
+    'img/room/0044.jpg',
+    'img/room/0045.jpg',
+    'img/room/0046.jpg',
+    'img/room/0047.jpg',
+    'img/room/0048.jpg',
+    'img/room/0049.jpg',
+    'img/room/0050.jpg',
+    'img/room/0051.jpg',
+    'img/room/0052.jpg',
+    'img/room/0053.jpg',
+    'img/room/0054.jpg',
+    'img/room/0055.jpg',
+    'img/room/0056.jpg',
+    'img/room/0057.jpg',
+    'img/room/0058.jpg',
+    'img/room/0059.jpg',
+    'img/room/0060.jpg',
+    'img/room/0061.jpg',
+    'img/room/0062.jpg',
+    'img/room/0063.jpg',
+    'img/room/0064.jpg',
+    'img/room/0065.jpg',
+    'img/room/0066.jpg',
+    'img/room/0067.jpg',
+    'img/room/0068.jpg',
+    'img/room/0069.jpg',
+    'img/room/0070.jpg',
+    'img/room/0071.jpg',
+    'img/room/0072.jpg',
+    'img/room/0073.jpg',
+    'img/room/0074.jpg',
+    'img/room/0075.jpg',
+    'img/room/0076.jpg',
+    'img/room/0077.jpg',
+    'img/room/0078.jpg',
+    'img/room/0079.jpg',
+    'img/room/0080.jpg'
 ];
 
 BRAIN_IMAGES = [
@@ -53,7 +93,7 @@ BRAIN_IMAGES = [
     'img/brain/4.png',
     'img/brain/5.png',
     'img/brain/6.png'
-]
+];
 
 var ENCOUNTERS = {
     1: {
@@ -138,7 +178,7 @@ var ENCOUNTERS = {
                 stats({ e: -2, m: 2, r: 2, p: 1, c: -2, k: 1});
             }));
         }
-    },
+    }, /*
     3: {
         range: {
             start: 2,
@@ -176,7 +216,75 @@ var ENCOUNTERS = {
                 }
             }));
         }
-    },
+    }, */
+    3: {
+        range: {
+            start: 2,
+            end: 10
+        },
+        meta: {answer: null},
+
+        bg: encounter_image("img/encounters/04/bg.png"),
+
+        text: encounter_text('Най- добрият ти приятел ти предлага бира в парка.'
+                           + 'Сядате, а той вади кутия цигари. Въпреки, че знае, че си непушач, ти предлага.'
+                           + '"Все пак не можеш да мразиш нещо, което не си опитал"'),
+
+        tryagain: $('<div id="tooltipClick" title="This is a tooltip that appears on click...">' +
+        '</div>').text('Помисли пак!'),
+
+        yes: choice_image("img/encounters/04/yes.png"),
+        no: choice_image("img/encounters/04/no.png"),
+
+        render: function(div) {
+            var $tooltipClick = $("#tooltipClick");
+
+            $tooltipClick.tooltip({
+                content: $tooltipClick.attr("title"),
+                items: this
+            })
+                .off("mouseover")
+                .on("click", function(){
+                    $(this).tooltip("open");
+                    return false;
+                })
+                .attr( "title", "" ).css({ cursor: "pointer" });
+
+            meta = this.meta;
+
+            div.append(this.bg);
+            div.append(grid(this.text, 6, 2));
+            
+            var tryagain = this.tryagain;
+            div.append(grid(this.yes, 4, 4).click(function() {
+                if (meta.answer != null) {
+                    // second answer is yes
+                    if (meta.answer == 'yes') {
+                        stats({ e: -1, m: -1, r: -2, p: -1, c: 2, k: 2});
+                    } else {
+                        stats({ e: 1, m: 2, r: -2, p: 1, c: -2, k: 1});
+                    }
+                    trigger_choice();
+                } else {
+                    meta.answer = 'yes';
+                    div.append(grid(tryagain, 8, 4));
+                }
+            }));
+            div.append(grid(this.no, 4, 6).click(function() {
+                if (meta.answer != null) {
+                    // second answer is no
+                    if (meta.answer == 'yes') {
+                        stats({ e: 2, m: 1, r: -2, p: -2, c: -1, k: -1});
+                    } else {
+                        stats({ e: -1, m: -1, r: 2, p: 2, c: 1, k: -2});
+                    }
+                } else {
+                    meta.answer = 'no';
+                    div.append(grid(tryagain, 8, 4));
+                }
+            }));
+        }
+    }
 } ;
 
 MEMORIES = {

@@ -1,7 +1,3 @@
-/**
- * Created by Rali on 8.11.2014 г..
- */
-
 function encounter_image(src) {
     return $('<img class="encounter_img stacked">').attr('src', src);
 }
@@ -28,10 +24,14 @@ function stats(stat_diff) {
     }
 }
 
+function trigger_choice() {
+    TIME += 1;
+    show_room();
+}
+
 function choice(element, x, y, action) {
     return grid(element, x, y).click(function() {
         action();
-        TIME += 1;
-        show_room();
+        trigger_choice();
     });
 }

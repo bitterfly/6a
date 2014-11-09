@@ -1,8 +1,4 @@
-/**
- * Created by Rali on 8.11.2014 г..
- */
-
-QUIZES = {
+sQUIZES = {
     0: {
         question: {
             type: '',
@@ -132,6 +128,5 @@ function POP_QUIZ (index) {
     QUIZES[index][choices].click(onChoice);
 
     function onChoice() {
-
     }
 }
