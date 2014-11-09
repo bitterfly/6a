@@ -110,7 +110,7 @@ var ENCOUNTERS = {
             end: 10
         },
         imgroot: '',
-        bg: encounter_image("img/encounters/02/bg.png"),
+        bg: encounter_image("img/encounters/04/bg.png"),
         text: encounter_text('  Настъпва първият ти учебен ден ' +
         'и по етикет на класния се носи букет. \n' +
         'Странно, но класният ти ръководител, всъщност, е мъж - ' +
@@ -137,6 +137,40 @@ var ENCOUNTERS = {
             }));
             div.append(choice(this.choices[3], 13, 4, function() {
                 stats({ e: -2, m: 2, r: 2, p: 1, c: -2, k: 1});
+            }));
+        }
+    },
+    3: {
+        range: {
+            start: 2,
+            end: 10
+        },
+        meta: {answer: null},
+        bg: encounter_image("img/encounters/04/bg.png"),
+        text: encounter_text('  Настъпва първият ти учебен ден ' +
+        'и по етикет на класния се носи букет. \n' +
+        'Странно, но класният ти ръководител, всъщност, е мъж - ' +
+        'какъв букет ли да му поднесеш... \n'),
+        yes: choice_image("img/encounters/04/yes.png"),
+        no: choice_image("img/encounters/04/no.png"),
+        render: function(div) {
+            meta = this.meta;
+            div.append(this.bg);
+            div.append(grid(this.text, 6, 2));
+            
+            div.append(grid(this.yes, 4, 4).click(function() {
+                if (meta.answer != null) {
+                    alert(meta.answer + ' yes');
+                } else {
+                    meta.answer = 'yes';
+                }
+            }));
+            div.append(grid(this.no, 8, 4).click(function() {
+                if (meta.answer != null) {
+                    alert(meta.answer + ' no');
+                } else {
+                    meta.answer = 'no';
+                }
             }));
         }
     },

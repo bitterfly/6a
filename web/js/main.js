@@ -39,7 +39,7 @@ $(document).ready(function() {
     });
 
     $("#room").click(start_encounter);
-    // show_room();
+    show_room();
     
     CUR.room_frames = add_images(ROOM_IMAGES, $("#room_background"));
     var brain_stack = $("#brain_stack");
