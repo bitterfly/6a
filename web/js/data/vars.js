@@ -129,7 +129,7 @@ var ENCOUNTERS = {
                 stats({ e: -2, m: 2, r: 2, p: 1, c: -2, k: 1});
             }));
         }
-    },
+    }
 } ;
 
 MEMORIES = {
