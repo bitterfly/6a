@@ -19,8 +19,8 @@ function grid(element, x, y) {
 }
 
 function stats(stat_diff) {
-    for (var key in stat_diff) {
-        STATS[key] += stat_diff[key];
+    for (var i = 0; i < STATS.length; i++) {
+        STATS[i] += stat_diff[i];
     }
 }
 
