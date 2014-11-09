@@ -20,18 +20,20 @@ function progress(icon, val) {
 }
 
 function stats() {
+    var quot = 100 / (STATS.e + STATS.m + STATS.r + STATS.p + STATS.c + STATS.k);
+
     $('#stats').html('');
-    $('#stats').append(progress('img/icons/1.png', 30, 100));
+    $('#stats').append(progress('img/icons/1.png', STATS.e * quot));
 
     $('#left').html('');
-    $('#left').append(progress('img/icons/1.png', 30, 100));
-    $('#left').append(progress('img/icons/2.png', 30, 100));
-    $('#left').append(progress('img/icons/3.png', 30, 100));
+    $('#left').append(progress('img/icons/1.png', STATS.e * quot));
+    $('#left').append(progress('img/icons/2.png', STATS.m * quot));
+    $('#left').append(progress('img/icons/3.png', STATS.r * quot));
 
     $('#right').html('');
-    $('#right').append(progress('img/icons/4.png', 30, 100));
-    $('#right').append(progress('img/icons/5.png', 30, 100));
-    $('#right').append(progress('img/icons/6.png', 30, 100));
+    $('#right').append(progress('img/icons/4.png', STATS.p * quot));
+    $('#right').append(progress('img/icons/5.png', STATS.c * quot));
+    $('#right').append(progress('img/icons/6.png', STATS.k * quot));
 }
 
 function set_frame(f_old, f_new) {
