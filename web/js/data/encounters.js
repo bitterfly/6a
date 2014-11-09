@@ -31,6 +31,7 @@ function stats(stat_diff) {
 function choice(element, x, y, action) {
     return grid(element, x, y).click(function() {
         action();
-        alert(JSON.stringify(STATS));
+        TIME += 1;
+        show_room();
     });
 }

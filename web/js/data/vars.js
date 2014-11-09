@@ -45,6 +45,16 @@ ROOM_IMAGES = [
     'img/room/0040.jpg'
 ];
 
+BRAIN_IMAGES = [
+    'img/brain/bg.png',
+    'img/brain/1.png',
+    'img/brain/2.png',
+    'img/brain/3.png',
+    'img/brain/4.png',
+    'img/brain/5.png',
+    'img/brain/6.png'
+]
+
 var ENCOUNTERS = {
     1: {
         range: {
@@ -160,7 +170,7 @@ MEMORIES = {
 
 CUR = {};
 ELEM = {};
-TIME = 2;
+TIME = 1;
 
 STATS = {
     e: 0,
