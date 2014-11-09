@@ -46,19 +46,21 @@ var BinaryTreeNode = Class.create({
 
 });
 
-var BinaryTree = new Class.create({
+BinaryTreeNode.prototype.append_child_rec = function (value) {
+    return this.append_child(value)            ||
+           this.left.append_child(value)       ||
+           this.right.append_child(value)      ||
+           this.left.append_child_rec(value)   ||
+           this.right.append_child_rec(value);
+};
 
-    initialize: function(value) {
-        this.root = new BinaryTreeNode(value, null);
-    },
+BinaryTreeNode.prototype.find_rec = function (value) {
+    return this.value === value ? this : this.left.find_rec(value) || this.right.find_rec(value);
+};
 
-    append: function(value) {
-        if (!this.root) {
-            this.root = new BinaryTreeNode(value, null);
-        } else {
-            this.root.append_child_rec(value);
-        }
-    },
+BinaryTreeNode.prototype.export = function (as_array) {
+    return as_array ? [this.value, this.left ? this.left.export(true) : null, this.right ? this.right.export(true) : null] : JSON.stringify(this);
+};
 
     find: function(value) {
         return this.root.find_rec(value);
