@@ -26,6 +26,8 @@ function stats(stat_diff) {
 
 function trigger_choice() {
     TIME += 1;
+    if (TIME == 3)
+        TIME = 4;
     show_room();
 }
 

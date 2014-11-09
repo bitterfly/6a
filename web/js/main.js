@@ -31,7 +31,7 @@ function show_stats() {
 
     $('#stats').html('');
 
-    $('#stats').append(progress('img/icons/1.png', STATS[ASPECT] * quot, 'red'));
+    $('#stats').append(progress('img/icons/' + (2) + '.png', STATS[ASPECT] * quot, 'red'));
 
     $('#left').html('');
     $('#left').append(progress('img/icons/1.png', STATS[0] * quot, '#c11323'));
@@ -115,12 +115,12 @@ $(document).ready(function() {
         [4, 4],
         [2, 4]
     ];
-    for (var i = 0; i < BRAIN_IMAGES.length; i++) {
+    brain_stack.append(grid($('<img class="stacked">')
+                            .attr('src', BRAIN_IMAGES[0])
+        , coordinates[0][0], coordinates[0][1]));
+    for (var i = 1; i < BRAIN_IMAGES.length; i++) {
         var img = BRAIN_IMAGES[i];
-        var cls = "stacked";
-        if (i > 0) {    // dirty hack
-            cls += " hover_show"
-        }
+        var cls = "stacked hover_show";
         var click_action = function() {
             ASPECT = i;
             show_room();

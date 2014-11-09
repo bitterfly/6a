@@ -93,11 +93,6 @@ BRAIN_IMAGES = [
 
 var ENCOUNTERS = {
     1: {
-        range: {
-            start: 2,
-            end: 10
-        },
-        imgroot: '',
         bg: encounter_image("img/encounters/01/bg.png"),
         shadow: encounter_image("img/encounters/01/shadow.png"),
         goblin: encounter_image("img/encounters/01/goblin.png"),
@@ -223,7 +218,7 @@ var ENCOUNTERS = {
 
         text: encounter_text('Приятел ти предлага бира в парка. Сядате, а той вади кутия цигари.' +
         'Въпреки че не пушиш, ти предлага. "Все пак не можеш да мразиш нещо, което не си опитал"'),
-
+            /*
         tryagain: function() {
             choice_text('Помисли пак!', 3);
 
@@ -240,7 +235,7 @@ var ENCOUNTERS = {
             }, 3000);
 
         },
-
+*/
         yes: choice_image("img/encounters/04/yes.png"),
         no: choice_image("img/encounters/04/no.png"),
 
@@ -249,10 +244,11 @@ var ENCOUNTERS = {
             meta = this.meta;
 
             div.append(this.bg);
+            var text_div = this.text;
+            
             div.append(grid(this.text, 6, 2));
             
-            var tryagain = this.tryagain;
-            div.append(grid(this.yes, 4, 4).click(function() {
+            div.append(grid(this.yes, 11, 4).click(function() {
                 if (meta.answer != null) {
                     // second answer is yes
                     if (meta.answer == 'yes') {
@@ -262,11 +258,11 @@ var ENCOUNTERS = {
                     }
                     trigger_choice();
                 } else {
+                    text_div.append($('<div class="extra">').text('Помисли пак.'));
                     meta.answer = 'yes';
-                    div.append(grid(tryagain, 8, 4));
                 }
             }));
-            div.append(grid(this.no, 4, 6).click(function() {
+            div.append(grid(this.no, 11, 6).click(function() {
                 if (meta.answer != null) {
                     // second answer is no
                     if (meta.answer == 'yes') {
@@ -274,13 +270,72 @@ var ENCOUNTERS = {
                     } else {
                         stats([ -1, -1, 2, 2, 1, -2 ]);
                     }
+                    trigger_choice();
                 } else {
+                    text_div.append($('<div class="extra">').text('Помисли пак.'));
                     meta.answer = 'no';
-                    div.append(grid(tryagain, 8, 4));
                 }
             }));
         }
-    }
+    },
+    5: {
+        bg: encounter_image("img/encounters/05/bg.png"),
+        choices: [
+            choice_image('img/encounters/05/1.png'),
+            choice_image('img/encounters/05/2.png'),
+            choice_image('img/encounters/05/3.png'),
+        ],
+        render: function(div) {
+            div.append(this.bg);
+
+            div.append(choice(this.choices[0], 7, 4, function() {
+                stats([ 0, 0, -2, 0, 0, 2 ]);
+            }));
+            div.append(choice(this.choices[1], 10, 4, function() {
+                stats([ 1, 2, 0, -1, -2, 0 ]);
+            }));
+            div.append(choice(this.choices[2], 13, 4, function() {
+                stats([ -2, 0, 2, 2, 0, -2 ]);
+            }));
+        }
+    },
+    6: {
+        bg: encounter_image("img/encounters/06/bg.png"),
+        text: encounter_text('  Настъпва първият ти учебен ден ' +
+        'и по пътя към училище минаваш покрай няколко цветаря. \n' +
+        'Класният ти, обаче, е мъж - ще купиш ли цвете? \n', 2),
+        choices: [
+            choice_text('Нещо различно тогава... слънчогледи', 61),
+            choice_text('Мама вече се погрижи', 62),
+            choice_text('Букетите са само за учителките', 63),
+            choice_text('Обичайното - роза', 64),
+            choice_text('Обичайното - роза', 65),
+            choice_text('Обичайното - роза', 66)
+        ],
+        render: function(div) {
+            div.append(this.bg);
+            div.append(grid(this.text, 6, 2));
+
+            div.append(choice(this.choices[0], 6, 4.2, function() {
+                stats([ 3, 2, -2, -3, -2, 2 ]);
+            }));
+            div.append(choice(this.choices[1], 6, 5.7, function() {
+                stats([ 2, 3, 2, -2, -3, -2 ]);
+            }));
+            div.append(choice(this.choices[2], 9, 4.2, function() {
+                stats([ -2, 2, 3, 2, -2, -3 ]);
+            }));
+            div.append(choice(this.choices[3], 12, 4.2, function() {
+                stats([ 1, -2, 2, 3, 2, -2 ]);
+            }));
+            div.append(choice(this.choices[4], 12, 4.2, function() {
+                stats([ 1, -2, 2, 3, 2, -2 ]);
+            }));
+            div.append(choice(this.choices[5], 12, 4.2, function() {
+                stats([ -2, 2, 2, 1, -2, 1 ]);
+            }));
+        }
+    },
 } ;
 
 MEMORIES = {
