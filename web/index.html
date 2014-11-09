@@ -1,13 +1,34 @@
 <html>
 <head>
-    <link rel="stylesheet" type="text/css" href="css/main.css" />
+    <link href='http://fonts.googleapis.com/css?family=Exo+2:500italic&subset=cyrillic' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" type="text/css" href="js/lib/dist/css/bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="js/lib/dist/css/bootstrap-theme.css">
     <link rel="stylesheet" type="text/css" href="js/lib/jquery-ui-1.11.1/jquery-ui.css">
+    <link rel="stylesheet" type="text/css" href="css/main.css" />
+    <meta charset="UTF-8">
 </head>
 <body>
-<div id="container">
-    <div id="room">
-        <div id="room_background" class="image_stack">
+    <div id="container">
+        <div id="room" style="display: none">
+            <div id="room_background" class="image_stack">
+            </div>
+            <div class="bottom_panel">
+                <div id="stats">
+                </div>
+                <div id="moarstats" class="suppl">
+                    <div id="left" class="col-md-6">
+                    </div>
+                    <div id="right" class="col-md-6">
+                    </div>
+            </div>
+        </div> 
+    </div>
+    <div id="encounter" style="display: none">
+        <div id="encounter_background" class="image_stack">
+        </div>
+    </div>
+    <div id="brain">
+        <div id="brain_stack" class="image_stack">
         </div>
     </div>
 </div>
@@ -17,10 +38,10 @@
 <script type="text/javascript" src="js/lib/prefixfree.min.js"></script>
 <script type="text/javascript" src="js/lib/dist/js/bootstrap.js"></script>
 <script type="text/javascript" src="js/lib/jquery-ui-1.11.1/jquery-ui.js"></script>
-<script type="text/javascript" src="js/data/vars.js"></script>
-<script type="text/javascript" src="js/data/encounters.js"></script>
-<script type="text/javascript" src="js/data/memories.js"></script>
 <script type="text/javascript" src="js/actions/add_hidden.js"></script>
+<script type="text/javascript" src="js/data/encounters.js"></script>
+<script type="text/javascript" src="js/data/vars.js"></script>
+<script type="text/javascript" src="js/data/memories.js"></script>
 <script type="text/javascript" src="js/main.js"></script>
 </body>
 
