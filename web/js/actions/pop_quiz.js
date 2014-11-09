@@ -132,6 +132,5 @@ function POP_QUIZ (index) {
     QUIZES[index][choices].click(onChoice);
 
     function onChoice() {
-
     }
 }
