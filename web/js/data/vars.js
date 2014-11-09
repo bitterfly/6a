@@ -158,13 +158,13 @@ var ENCOUNTERS = {
             div.append(this.bg);
             div.append(grid(this.text, 6, 2));
             
-                    div.append(grid(this.tryagain, 8, 4));
+            var tryagain = this.tryagain;
             div.append(grid(this.yes, 4, 4).click(function() {
                 if (meta.answer != null) {
                     alert(meta.answer + ' yes');
                 } else {
                     meta.answer = 'yes';
-                    div.append(grid(this.tryagain, 8, 4));
+                    div.append(grid(tryagain, 8, 4));
                 }
             }));
             div.append(grid(this.no, 4, 6).click(function() {
@@ -172,7 +172,7 @@ var ENCOUNTERS = {
                     alert(meta.answer + ' no');
                 } else {
                     meta.answer = 'no';
-                    div.append(grid(this.tryagain, 8, 4));
+                    div.append(grid(tryagain, 8, 4));
                 }
             }));
         }
