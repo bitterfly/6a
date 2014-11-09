@@ -26,19 +26,19 @@ BinaryTreeNode.prototype.append_child = function (value) {
 };
 
 BinaryTreeNode.prototype.append_child_rec = function (value) {
-    return this.appendChild(value)           ||
-           this.left.appendChild(value)      ||
-           this.right.appendChild(value)     ||
-           this.left.appendChildRec(value)   ||
-           this.right.appendChildRec(value);
+    return this.append_child(value)            ||
+           this.left.append_child(value)       ||
+           this.right.append_child(value)      ||
+           this.left.append_child_rec(value)   ||
+           this.right.append_child_rec(value);
 };
 
 BinaryTreeNode.prototype.find_rec = function (value) {
-    return this.value === value ? this : this.left.findRec(value) || this.right.findRec(value);
+    return this.value === value ? this : this.left.find_rec(value) || this.right.find_rec(value);
 };
 
 BinaryTreeNode.prototype.export = function (as_array) {
-    return as_array ? [this.value, this.left ? this.left.export() : null, this.right ? this.right.export() : null] : JSON.stringify(this);
+    return as_array ? [this.value, this.left ? this.left.export(true) : null, this.right ? this.right.export(true) : null] : JSON.stringify(this);
 };
 
 function BinaryTree(value) {
