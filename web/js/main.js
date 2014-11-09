@@ -70,7 +70,7 @@ $(document).ready(function() {
         [6, 2],
         [6, 4],
         [4, 4],
-        [2, 4],
+        [2, 4]
     ];
     for (var i = 0; i < BRAIN_IMAGES.length; i++) {
         var img = BRAIN_IMAGES[i];
@@ -98,3 +98,4 @@ $(document).ready(function() {
     $("#room").click(start_encounter);
     show_room();
 });
+

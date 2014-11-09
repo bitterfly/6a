@@ -223,15 +223,35 @@ var ENCOUNTERS = {
             end: 10
         },
         meta: {answer: null},
+
         bg: encounter_image("img/encounters/04/bg.png"),
+
         text: encounter_text('Най- добрият ти приятел ти предлага бира в парка.'
                            + 'Сядате, а той вади кутия цигари. Въпреки, че знае, че си непушач, ти предлага.'
                            + '"Все пак не можеш да мразиш нещо, което не си опитал"'),
-        tryagain: encounter_text('Помисли пак.'),
+
+        tryagain: $('<span id="tooltipClick" title="This is a tooltip that appears on click...">' +
+        'Tooltip on Click</span>').text('Помисли пак.'),
+
         yes: choice_image("img/encounters/04/yes.png"),
         no: choice_image("img/encounters/04/no.png"),
+
         render: function(div) {
+            var $tooltipClick = $("#tooltipClick");
+
+            $tooltip.tooltipClick({
+                content: $tooltipClick.attr( "title" ),
+                items: thiss
+            })
+                .off( "mouseover" )
+                .on( "click", function(){
+                    $( this ).tooltip( "open" );
+                    return false;
+                })
+                .attr( "title", "" ).css({ cursor: "pointer" });
+
             meta = this.meta;
+
             div.append(this.bg);
             div.append(grid(this.text, 6, 2));
             
@@ -264,7 +284,7 @@ var ENCOUNTERS = {
                 }
             }));
         }
-    },
+    }
 } ;
 
 MEMORIES = {
