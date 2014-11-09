@@ -141,9 +141,31 @@ body {
     opacity: 1;
 }
 
+<<<<<<< HEAD
+/*.temp {
+    position: relative;
+    display: inline;
+
+    width:140px;
+    color: #FFFFFF;
+    background: #000000;
+    height: 30px;
+    line-height: 30px;
+    text-align: center;
+    border-radius: 6px;
+
+    visibility: visible;
+    opacity: 0.8;
+    bottom: 30px;
+    left: 50%;
+    margin-left: -76px;
+    z-index: 999;
+}*/
+=======
 .icon {
     height: 40px;
     float: left;
     margin-top: -10px;
 }
 
+>>>>>>> ff652182903167b384eb7dcd63ca964a440ffb35
