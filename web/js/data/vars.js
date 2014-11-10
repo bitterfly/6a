@@ -248,7 +248,7 @@ var ENCOUNTERS = {
         bg: encounter_image("img/encounters/04/bg.png"),
 
         text: encounter_text('Приятел ти предлага бира в парка. Сядате, а той вади кутия цигари.' +
-        'Въпреки че не пушиш, ти предлага. "Все пак не можеш да мразиш нещо, което не си опитал"'),
+        'Въпреки че не пушиш, ти предлага. "Все пак не можеш да мразиш нещо, което не си опитал"', 4),
             /*
         tryagain: function() {
             choice_text('Помисли пак!', 3);
@@ -277,7 +277,7 @@ var ENCOUNTERS = {
             div.append(this.bg);
             var text_div = this.text;
             
-            div.append(grid(this.text, 6, 2));
+            div.append(grid(this.text, 6, 0.5));
             
             div.append(grid(this.yes, 10, 6).click(function() {
                 if (meta.answer != null) {
@@ -335,7 +335,7 @@ var ENCOUNTERS = {
     },
     6: {
         bg: encounter_image("img/encounters/06/bg.png"),
-        text: encounter_text('Попадаш на архаичен лектор, който те кара да "пееш" материала, а дали го разбираш не е важно. Време ли е за промяна?', 2),
+        text: encounter_text('Попадаш на архаичен лектор, който те кара да "пееш" материала, а дали го разбираш не е важно. Време ли е за промяна?', 6),
         choices: [
             choice_text('Какво значение има: преписан изпит - взет изпит, важна е дипломата', 61),
             choice_text('Разгорещено обясняваш на лектора какво и как да промени.', 62),
@@ -348,22 +348,22 @@ var ENCOUNTERS = {
             div.append(this.bg);
             div.append(grid(this.text, 6, 2));
 
-            div.append(choice(this.choices[0], 6, 4.2, function() {
+            div.append(choice(this.choices[0], 6.5, 5.2, function() {
                 stats([ 3, 2, -2, -3, -2, 2 ]);
             }));
-            div.append(choice(this.choices[1], 6, 5.7, function() {
+            div.append(choice(this.choices[1], 6.5, 6.7, function() {
                 stats([ 2, 3, 2, -2, -3, -2 ]);
             }));
-            div.append(choice(this.choices[2], 9, 4.2, function() {
+            div.append(choice(this.choices[2], 9.5, 5.2, function() {
                 stats([ -2, 2, 3, 2, -2, -3 ]);
             }));
-            div.append(choice(this.choices[3], 12, 4.2, function() {
+            div.append(choice(this.choices[3], 12.5, 5.2, function() {
                 stats([ 1, -2, 2, 3, 2, -2 ]);
             }));
-            div.append(choice(this.choices[4], 12, 4.2, function() {
+            div.append(choice(this.choices[4], 12.5, 5.2, function() {
                 stats([ 1, -2, 2, 3, 2, -2 ]);
             }));
-            div.append(choice(this.choices[5], 12, 4.2, function() {
+            div.append(choice(this.choices[5], 12.5, 5.2, function() {
                 stats([ -2, 2, 2, 1, -2, 1 ]);
             }));
         }

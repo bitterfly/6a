@@ -7,11 +7,11 @@ function choice_image(src) {
 }
 
 function choice_text(text, id) {
-    return $('<div class="choice_text stacked" id="' + id + '">').text(text);
+    return $('<div class="choice_text stacked" id="a' + id + '">').text(text);
 }
 
 function encounter_text(text, id) {
-    return $('<div class="encounter_text stacked" id="' + id + '">').text(text);
+    return $('<div class="encounter_text stacked" id="a' + id + '">').text(text);
 }
 
 function grid(element, x, y) {
